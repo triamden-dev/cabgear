@@ -1,0 +1,370 @@
+"""Build the TriAmden Cab Gear static site.
+Outputs:
+  ../site/      full HTML documents, ready to upload to any static host
+  ../artifact/  same pages; index.html as a fragment for the Artifact preview
+"""
+import os, re, shutil
+
+ROOT = os.path.dirname(os.path.abspath(__file__))
+SITE = os.path.join(ROOT, "..", "site")
+ART = os.path.join(ROOT, "..", "artifact")
+DRAFT = True  # shows the draft banner and editor notes; set False before going live
+
+FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
+         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400'
+         '&family=Overpass:wght@500;600;700;800&family=Overpass+Mono:wght@500;600&display=swap">')
+
+DISCLOSURE = "As an Amazon Associate I earn from qualifying purchases."
+
+NAV = [("index.html", "Home"), ("cab-kitchen-clutter-guide.html", "Gear guide"),
+       ("cab-organization-zones.html", "Organize"), ("about.html", "About")]
+
+
+def note(text):
+    return f'<div class="note"><strong>Clifford adds:</strong> {text}</div>' if DRAFT else ""
+
+
+def buy(name):
+    # Placeholder until an Associates account exists. No real affiliate links.
+    return (f'<a class="buy" role="link" aria-disabled="true" data-product="{name}">'
+            f'Amazon link pending — {name}</a>')
+
+
+def page(slug, title, desc, body, current=None):
+    nav = "".join(
+        f'<a href="{h}"{" aria-current=\"page\"" if h == (current or slug) else ""}>{t}</a>' for h, t in NAV)
+    draft = ('<div class="draft"><div class="wrap">Draft preview. Affiliate links are placeholders and '
+             '"Clifford adds" notes must be filled in before this site goes live.</div></div>') if DRAFT else ""
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{title}</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="{desc}">
+{'<meta name="robots" content="noindex">' if DRAFT else ''}
+{FONTS}
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="masthead"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-mark">TriAmden</span><span class="brand-name">Cab Gear</span></a>
+  <nav class="nav" aria-label="Main">{nav}</nav>
+</div></header>
+{draft}
+<main>
+{body}
+</main>
+<footer class="footer"><div class="wrap">
+  <p style="margin:0"><strong>{DISCLOSURE}</strong> Links to Amazon on this site may earn us a commission at no extra cost to you.</p>
+  <nav aria-label="Footer"><a href="affiliate-disclosure.html">Affiliate disclosure</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a><a href="about.html">About</a></nav>
+  <p style="margin:0">© 2026 TriAmden Transportation. Cab Gear is written for professional drivers by a working CDL-A driver.</p>
+</div></footer>
+</body>
+</html>
+"""
+
+
+# ---------- HOS grid graphic (home hero) ----------
+def hos_svg():
+    x0, w, rowh = 46, 24 * 18, 26
+    rows = ["OFF", "SB", "D", "ON"]
+    parts = [f'<svg class="hos" viewBox="0 0 {x0 + w + 8} {rowh * 4 + 30}" role="img" '
+             'aria-label="Sample duty-status grid showing a day of off-duty, sleeper, driving and on-duty time">']
+    for i, r in enumerate(rows):
+        y = 18 + i * rowh
+        parts.append(f'<text x="0" y="{y + 17}">{r}</text>')
+        for h in range(24):
+            parts.append(f'<rect class="cell" x="{x0 + h * 18}" y="{y}" width="18" height="{rowh}"/>')
+    for h in range(0, 25, 6):
+        parts.append(f'<text x="{x0 + h * 18 - 4}" y="12">{h if h < 24 else ""}</text>')
+    # illustrative day: SB 0-5, ON 5-5.5, D 5.5-11, OFF 11-11.5, D 11.5-16, ON 16-17, SB 17-24
+    seq = [(0, 1), (5, 3), (5.5, 2), (11, 0), (11.5, 2), (16, 3), (17, 1), (24, 1)]
+    pts, prev = [], None
+    for t, r in seq:
+        y = 18 + r * rowh + rowh / 2
+        x = x0 + t * 18
+        if prev is not None:
+            pts.append(f"{x},{prev}")
+        pts.append(f"{x},{y}")
+        prev = y
+    parts.append(f'<polyline class="trace" points="{" ".join(pts)}"/></svg>')
+    return "".join(parts)
+
+
+PAGES = {}
+
+PAGES["index.html"] = ("TriAmden Cab Gear", "Cab organization and in-cab kitchen gear for over-the-road truck drivers.", f"""
+<section class="hero"><div class="wrap">
+  <div>
+    <p class="eyebrow">For OTR and regional drivers</p>
+    <h1>Gear that makes the cab work like home.</h1>
+    <p class="lede">Your truck is your office, your kitchen and your bedroom. Cab Gear covers what helps a driver stay organized, eat better on the road and live in a small space for weeks at a time.</p>
+  </div>
+  <figure class="grid-card" style="margin:0">
+    {hos_svg()}
+    <figcaption>Illustration only: an example day on a duty-status grid. The gear on this site is about the hours that aren't driving.</figcaption>
+  </figure>
+</div></section>
+<section><div class="wrap">
+  <div class="section-head"><h2>Guides</h2><a href="cab-kitchen-clutter-guide.html">Start with the gear guide</a></div>
+  <ul class="cards">
+    <li class="card"><a href="cab-kitchen-clutter-guide.html"><span class="tag">Buying guide</span><h3>Cab Kitchen &amp; Clutter Control: 5 Gear Picks</h3><p>A seat-back organizer, two 12V lunch boxes, a dual-zone fridge and a steering wheel tray.</p></a></li>
+    <li class="card"><a href="12v-lunch-box-hotlogic-vs-travelisimo.html"><span class="tag">Comparison</span><h3>HOTLOGIC Mini vs. TRAVELISIMO 100W</h3><p>Which 12V heated lunch box fits how you drive, and what to check before you buy either.</p></a></li>
+    <li class="card"><a href="12v-fridge-buying-checklist.html"><span class="tag">Checklist</span><h3>12V Fridge Buying Checklist for Truck Drivers</h3><p>Space, power, battery protection and carrier rules to settle before spending a few hundred dollars.</p></a></li>
+    <li class="card"><a href="cab-organization-zones.html"><span class="tag">How-to</span><h3>Organize Your Cab by Zone</h3><p>Driver's reach, passenger seat, bunk and storage: what belongs where, including the documents that must stay in the cab.</p></a></li>
+  </ul>
+</div></section>
+""")
+
+PAGES["cab-kitchen-clutter-guide.html"] = ("Cab Kitchen & Clutter Control", "Five gear picks for over-the-road truck drivers: organization, hot meals and cold storage.", f"""
+<article class="article"><div class="wrap">
+<p class="eyebrow">Buying guide</p>
+<h1>Cab Kitchen &amp; Clutter Control: 5 Gear Picks for Over-the-Road Drivers</h1>
+<p class="byline">By Clifford Cruickshank, CDL-A driver · Updated October 2026</p>
+<p class="disclosure"><strong>Disclosure:</strong> TriAmden Cab Gear is a participant in the Amazon Associates program. {DISCLOSURE} Buying through our links costs you nothing extra.</p>
+<p>A truck cab is your office, kitchen and bedroom in less floor space than most closets. Two things decide whether a long week out feels manageable: whether you can find what you need without digging, and whether you can eat something other than truck-stop food. This guide covers both.</p>
+{note("two or three sentences in your own words about how long you've driven and what your cab setup looks like. Only what's true.")}
+
+<h2>Organization</h2>
+<section class="pick">
+  <h3>RoadPro 14-pocket seat-back organizer</h3>
+  <p class="meta">Brand: RoadPro · Model: RPSB-14 · Mounts on a seat back</p>
+  <p>RoadPro makes accessories for the trucking market. This organizer hangs on the back of the seat and gives you fourteen pockets for paperwork, chargers, gloves and snacks. If the passenger seat has turned into the junk drawer, it's the cheapest fix on this list.</p>
+  {buy("RoadPro RPSB-14")}
+</section>
+<section class="pick">
+  <h3>XERGUR 2-in-1 steering wheel tray</h3>
+  <p class="meta">Brand: XERGUR · Fits on the steering wheel or a headrest</p>
+  <p>A flat surface for a meal or paperwork while you're parked. Check the product dimensions against your own steering wheel before you buy: semi wheels are larger and sit flatter than car wheels, and this tray is designed around passenger vehicles. Use it only when the truck is parked.</p>
+  {buy("XERGUR steering wheel tray")}
+</section>
+
+<h2>Hot meals on the road</h2>
+<p>A 12V heated lunch box plugs into the cab's power socket and warms food you packed or bought at a grocery store. The two below are the most-reviewed options we found. The <a href="12v-lunch-box-hotlogic-vs-travelisimo.html">full comparison</a> goes deeper.</p>
+<div class="table-wrap"><table>
+  <thead><tr><th></th><th>HOTLOGIC Mini 12V</th><th>TRAVELISIMO 100W</th></tr></thead>
+  <tbody>
+    <tr><td>Power (per listing)</td><td>12V</td><td>12V, 24V and 110V</td></tr>
+    <tr><td>Best fit</td><td>Drivers who only heat food in the truck</td><td>Drivers who also want to use it at home or in a motel</td></tr>
+  </tbody>
+</table></div>
+{buy("HOTLOGIC Mini 12V")} {buy("TRAVELISIMO 100W")}
+
+<h2>Keeping food cold</h2>
+<section class="pick">
+  <h3>Feelfunn 40QT dual-zone 12V fridge/freezer</h3>
+  <p class="meta">Brand: Feelfunn · 40 quarts · Two temperature zones · 12/24V DC and AC power (per listing)</p>
+  <p>A compressor fridge that runs on the truck's DC power. The two zones let you freeze in one side and refrigerate in the other, so one grocery run can cover more of the week. A 12V fridge is a bigger purchase than anything else here, so read the <a href="12v-fridge-buying-checklist.html">fridge checklist</a> before you buy any model.</p>
+  {buy("Feelfunn 40QT dual zone")}
+</section>
+{note("if you own or have used any of these, say so and say what you noticed. If you haven't, leave this out — never imply you tested something you didn't.")}
+
+<h2>Where to start</h2>
+<ul>
+  <li><strong>Lowest cost:</strong> the seat-back organizer.</li>
+  <li><strong>Biggest daily difference:</strong> a heated lunch box.</li>
+  <li><strong>Biggest investment:</strong> a 12V fridge. Measure your space and check your power setup first.</li>
+</ul>
+</div></article>
+""", "cab-kitchen-clutter-guide.html")
+
+PAGES["12v-lunch-box-hotlogic-vs-travelisimo.html"] = ("HOTLOGIC vs TRAVELISIMO", "Comparing two popular 12V heated lunch boxes for truck drivers.", f"""
+<article class="article"><div class="wrap">
+<p class="eyebrow">Comparison</p>
+<h1>HOTLOGIC Mini vs. TRAVELISIMO 100W: Which 12V Lunch Box?</h1>
+<p class="byline">By Clifford Cruickshank, CDL-A driver · Updated October 2026</p>
+<p class="disclosure"><strong>Disclosure:</strong> {DISCLOSURE}</p>
+<p>Both of these plug into your cab's 12V socket and heat a packed meal while you drive or wait at a dock. They solve the same problem in different ways, so the right pick depends on where else you want to use it.</p>
+
+<h2>Side by side</h2>
+<div class="table-wrap"><table>
+  <thead><tr><th></th><th>HOTLOGIC Mini 12V</th><th>TRAVELISIMO 100W</th></tr></thead>
+  <tbody>
+    <tr><td>Power sources (per listing)</td><td>12V</td><td>12V, 24V, 110V</td></tr>
+    <tr><td>Listed wattage</td><td>Check the current listing</td><td>100W</td></tr>
+    <tr><td>Listed capacity</td><td>Check the current listing</td><td>1.5 liters</td></tr>
+    <tr><td>Container (per listing)</td><td>Check the current listing</td><td>Stainless steel</td></tr>
+    <tr><td>Choose it if</td><td>You only heat food in the truck</td><td>You split time between truck, home and motels</td></tr>
+  </tbody>
+</table></div>
+<p>Where a cell says to check the listing, the detail wasn't stated clearly enough for us to repeat it. Specs and prices change, so confirm them on Amazon before you buy.</p>
+
+<h2>Power draw in plain numbers</h2>
+<p>On a 12V system, current is watts divided by volts. A 100-watt heater pulls a little over 8 amps (100 ÷ 12 ≈ 8.3). Check the fuse rating of the socket you plan to use, and don't share that socket with another high-draw device through a splitter.</p>
+
+<h2>Which one</h2>
+<ul>
+  <li><strong>HOTLOGIC Mini</strong> if the truck is the only place you'll use it and you want something simple.</li>
+  <li><strong>TRAVELISIMO 100W</strong> if you also want to plug it into a wall outlet at home or in a motel.</li>
+</ul>
+<p>{buy("HOTLOGIC Mini 12V")} {buy("TRAVELISIMO 100W")}</p>
+{note("which one do you use, how long does your typical meal take to heat, and what do you cook in it? Only real experience.")}
+</div></article>
+""", "cab-kitchen-clutter-guide.html")
+
+PAGES["12v-fridge-buying-checklist.html"] = ("12V Fridge Checklist", "What truck drivers should check before buying a 12V refrigerator for the cab.", f"""
+<article class="article"><div class="wrap">
+<p class="eyebrow">Checklist</p>
+<h1>12V Fridge Buying Checklist for Truck Drivers</h1>
+<p class="byline">By Clifford Cruickshank, CDL-A driver · Updated October 2026</p>
+<p class="disclosure"><strong>Disclosure:</strong> {DISCLOSURE}</p>
+<p>A good 12V fridge can cut what you spend on food and give you better choices on the road. It's also a few hundred dollars and a permanent piece of your living space. Work through this list before you pick a model.</p>
+
+<h2>1. Space</h2>
+<ul class="check">
+  <li>Measure the spot: width, depth and height, plus room for the lid to open.</li>
+  <li>Leave clearance around the vents. Compressor fridges need airflow to run efficiently.</li>
+  <li>Plan how you'll secure it. Anything loose in a cab moves in a hard stop.</li>
+</ul>
+
+<h2>2. Cooling type</h2>
+<ul class="check">
+  <li><strong>Compressor</strong> fridges hold a set temperature and many can freeze.</li>
+  <li><strong>Thermoelectric</strong> coolers only cool a certain amount below the air around them, so they struggle in a hot cab.</li>
+  <li>Dual-zone models let you run a freezer and a fridge side at once.</li>
+</ul>
+
+<h2>3. Power while parked</h2>
+<ul class="check">
+  <li>Know how your truck handles power during your 10-hour break: APU, battery bank, shore power or idling.</li>
+  <li>Anti-idling rules vary by state and city. Don't plan on idling to run the fridge.</li>
+  <li>Look for <strong>low-voltage battery protection</strong> so the fridge shuts off before it drains your batteries.</li>
+  <li>Check whether the model runs on both 12V and 24V DC, and whether it has an AC adapter for home.</li>
+</ul>
+
+<h2>4. Living with it</h2>
+<ul class="check">
+  <li>Noise: you'll sleep next to it. Look for stated noise levels and read reviews that mention them.</li>
+  <li>Drain plug and removable baskets make cleaning easier.</li>
+  <li>App control is optional. A clear physical display matters more.</li>
+</ul>
+
+<h2>5. Your carrier</h2>
+<ul class="check">
+  <li>Some fleets limit appliances, inverters or how equipment is mounted. Ask before you buy if you drive a company truck.</li>
+</ul>
+
+<h2>Models covered on this site</h2>
+<p>We currently cover the <a href="cab-kitchen-clutter-guide.html">Feelfunn 40QT dual-zone</a> as a mid-priced option. Premium models from brands such as ICECO cost considerably more.</p>
+{note("what fridge or cooler setup do you run, and what would you check first? Only real experience.")}
+</div></article>
+""", "cab-kitchen-clutter-guide.html")
+
+PAGES["cab-organization-zones.html"] = ("Organize Your Cab", "A zone-by-zone system for organizing a truck cab, including the documents that must stay in the cab.", f"""
+<article class="article"><div class="wrap">
+<p class="eyebrow">How-to</p>
+<h1>Organize Your Cab by Zone</h1>
+<p class="byline">By Clifford Cruickshank, CDL-A driver · Updated October 2026</p>
+<p>Clutter in a cab costs time, and loose items become hazards in a hard stop. The fix is a home for everything, decided by how often you need it and whether you need it while driving.</p>
+
+<h2>Zone 1: Driver's reach</h2>
+<p>Only what you need while the truck is moving, and all of it secured.</p>
+<ul>
+  <li>Phone in a mount. Federal rules prohibit CMV drivers from holding a mobile phone while driving, so set it up for hands-free use.</li>
+  <li>Sunglasses, a drink in a holder, toll and fuel cards somewhere you can reach without looking.</li>
+</ul>
+
+<h2>Zone 2: Paperwork and required documents</h2>
+<p>If your truck uses an ELD, FMCSA requires you to keep these in the cab:</p>
+<ul>
+  <li>The ELD user's manual</li>
+  <li>An instruction sheet for transferring ELD records to an officer</li>
+  <li>An instruction sheet for reporting ELD malfunctions</li>
+  <li>A supply of blank driver's records of duty status graph-grids, enough for at least 8 days</li>
+</ul>
+<p>Keep them together with your registration, insurance card and bills of lading in one labeled folder or a seat-back pocket, so you can hand them over quickly at an inspection.</p>
+
+<h2>Zone 3: Passenger seat and dash</h2>
+<p>This is where clutter collects. Give it a container, such as a seat-back or front-seat organizer, and empty it at every fuel stop.</p>
+
+<h2>Zone 4: Sleeper and bunk</h2>
+<ul>
+  <li>Clothes in soft bags or bins sized to your cabinets.</li>
+  <li>Food and the fridge together, so the kitchen is in one place.</li>
+  <li>A small trash bag you change daily.</li>
+</ul>
+
+<h2>Zone 5: Outside storage</h2>
+<p>Gloves, straps, tire gauge, flashlight and anything dirty or rarely used belong in the side boxes, not in your living space.</p>
+
+<p>Gear that helps with each zone is in our <a href="cab-kitchen-clutter-guide.html">gear guide</a>.</p>
+{note("a photo description or two tips from your own cab. What's the one habit that keeps yours clean?")}
+</div></article>
+""")
+
+PAGES["about.html"] = ("About Cab Gear", "Who writes TriAmden Cab Gear and how products are chosen.", f"""
+<article class="article"><div class="wrap">
+<p class="eyebrow">About</p>
+<h1>About TriAmden Cab Gear</h1>
+<p>TriAmden Cab Gear is written by Clifford Cruickshank, a CDL-A truck driver, under TriAmden Transportation. The site covers gear for living and working in a truck cab: organization, food storage and in-cab cooking.</p>
+{note("your story in a short paragraph: how you got into trucking, the kind of runs you do, and why you started this site.")}
+<h2>How we choose products</h2>
+<ul>
+  <li>We look for gear that solves a real problem drivers have in the cab.</li>
+  <li>We describe products from their listings and published specifications, and we say when something needs checking.</li>
+  <li>We only describe hands-on use when we've actually used the product.</li>
+  <li>We earn a commission on some purchases, which never changes what you pay. See our <a href="affiliate-disclosure.html">affiliate disclosure</a>.</li>
+</ul>
+</div></article>
+""")
+
+PAGES["affiliate-disclosure.html"] = ("Affiliate Disclosure", "How TriAmden Cab Gear earns money.", f"""
+<article class="article"><div class="wrap">
+<h1>Affiliate disclosure</h1>
+<p><strong>{DISCLOSURE}</strong></p>
+<p>TriAmden Cab Gear participates in the Amazon Associates Program, an affiliate advertising program that lets sites earn fees by linking to Amazon.com. When you click a link on this site and buy something on Amazon, we may earn a commission. The price you pay is the same.</p>
+<p>Commissions don't decide what we cover. We write about gear we believe is useful to drivers, and we say plainly when we haven't tested something ourselves.</p>
+<p>Product prices and availability change. Always check the current price and details on Amazon before you buy.</p>
+</div></article>
+""")
+
+PAGES["privacy.html"] = ("Privacy Policy", "Privacy policy for TriAmden Cab Gear.", f"""
+<article class="article"><div class="wrap">
+<h1>Privacy policy</h1>
+{note("have this reviewed before launch. It must match the analytics and any email signup you actually run.")}
+<p>Effective: [launch date]</p>
+<h2>What we collect</h2>
+<p>We use [analytics tool] to understand which pages people read. It collects standard information such as pages visited, approximate location and device type. We don't sell personal information.</p>
+<h2>Cookies and third parties</h2>
+<p>When you click a link to Amazon, Amazon may set cookies to track the referral, under Amazon's own privacy notice. Our analytics provider may also use cookies.</p>
+<h2>Contact</h2>
+<p>Questions about this policy: see our <a href="contact.html">contact page</a>.</p>
+</div></article>
+""")
+
+PAGES["contact.html"] = ("Contact Cab Gear", "How to reach TriAmden Cab Gear.", f"""
+<article class="article"><div class="wrap">
+<h1>Contact</h1>
+<p>Have a gear question, a correction or a product you think drivers should know about?</p>
+<p>Email: <strong>[contact email]</strong></p>
+{note("choose the address to publish here.")}
+</div></article>
+""")
+
+
+def build():
+    for d in (SITE, ART):
+        shutil.rmtree(d, ignore_errors=True)
+        os.makedirs(d)
+    for slug, data in PAGES.items():
+        title, desc, body = data[0], data[1], data[2]
+        current = data[3] if len(data) > 3 else None
+        html = page(slug, title, desc, body, current)
+        open(os.path.join(SITE, slug), "w").write(html)
+        if slug == "index.html":
+            head = re.search(r"<head>(.*?)</head>", html, re.S).group(1)
+            head = re.sub(r'<meta charset="utf-8">\s*|<meta name="viewport"[^>]*>\s*', "", head)
+            body_ = re.search(r"<body>(.*)</body>", html, re.S).group(1)
+            open(os.path.join(ART, slug), "w").write(head.strip() + "\n" + body_)
+        else:
+            open(os.path.join(ART, slug), "w").write(html)
+    for d in (SITE, ART):
+        shutil.copy(os.path.join(ROOT, "styles.css"), d)
+    print("built", len(PAGES), "pages")
+
+
+if __name__ == "__main__":
+    build()
