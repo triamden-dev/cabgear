@@ -136,3 +136,7 @@ ART["cab-organization-zones.html"] = ('<img class="art art-photo art-contain" sr
 ART["12v-fridge-buying-checklist.html"] = ('<img class="art art-photo" src="fridge-checklist.jpg" '
     'alt="An open 12-volt portable fridge stocked with water, meals and fruit beside a 12V fridge buying checklist on a clipboard" '
     'width="1344" height="762" loading="lazy">')
+
+ART["how-i-eat-on-the-road.html"] = ('<img class="art art-photo" src="meals-microwave.jpg" '
+    'alt="Home-cooked meals in glass containers next to a plate of chicken, rice and broccoli and a microwave in a truck cab" '
+    'width="1341" height="737" loading="lazy">')
