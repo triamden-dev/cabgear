@@ -55,10 +55,13 @@ AMAZON_TERMS = ("We don't sell the products we link to. Orders placed on Amazon 
 
 FB_URL = "https://www.facebook.com/TriAmden/"
 IG_URL = "https://www.instagram.com/triamden/"
+YT_URL = "https://www.youtube.com/@TriAmdenMarketing"
+YT_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 8.2a3 3 0 0 0-2.1-2.1C18 5.6 12 5.6 12 5.6s-6 0-7.9.5A3 3 0 0 0 2 8.2 31 31 0 0 0 1.6 12 31 31 0 0 0 2 15.8a3 3 0 0 0 2.1 2.1c1.9.5 7.9.5 7.9.5s6 0 7.9-.5a3 3 0 0 0 2.1-2.1c.4-1.2.4-3.8.4-3.8s0-2.6-.4-3.8zM10 15V9l5.2 3z"/></svg>'
 FB_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v6h4v-6H16l.6-4h-3.1V9c0-.6.4-1 1-1z"/></svg>'
 IG_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2"/></svg>'
 SOCIAL = (f'<a class="soc" href="{FB_URL}" target="_blank" rel="noopener me" aria-label="TriAmden on Facebook">{FB_SVG}</a>'
-          f'<a class="soc" href="{IG_URL}" target="_blank" rel="noopener me" aria-label="TriAmden on Instagram">{IG_SVG}</a>')
+          f'<a class="soc" href="{IG_URL}" target="_blank" rel="noopener me" aria-label="TriAmden on Instagram">{IG_SVG}</a>'
+          f'<a class="soc" href="{YT_URL}" target="_blank" rel="noopener me" aria-label="TriAmden on YouTube">{YT_SVG}</a>')
 
 NAV = [("index.html", "Home"), ("cab-kitchen-clutter-guide.html", "Gear guide"),
        ("cab-organization-zones.html", "Organize"), ("about.html", "About")]
@@ -132,7 +135,7 @@ def page(slug, title, desc, body, current=None):
 <footer class="footer"><div class="wrap">
   <p style="margin:0"><strong>{DISCLOSURE}</strong> {FOOTER_NOTE}</p>
   <p style="margin:0">{AMAZON_TERMS}</p>
-  <nav aria-label="Footer"><a href="affiliate-disclosure.html">Affiliate disclosure</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="{FB_URL}" target="_blank" rel="noopener me">Facebook</a><a href="{IG_URL}" target="_blank" rel="noopener me">Instagram</a></nav>
+  <nav aria-label="Footer"><a href="affiliate-disclosure.html">Affiliate disclosure</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="{FB_URL}" target="_blank" rel="noopener me">Facebook</a><a href="{IG_URL}" target="_blank" rel="noopener me">Instagram</a><a href="{YT_URL}" target="_blank" rel="noopener me">YouTube</a></nav>
   <p style="margin:0">© 2026 TriAmden Marketing. Cab Gear is written for professional drivers by a working CDL-A driver.</p>
 </div></footer>
 </body>
@@ -564,7 +567,7 @@ PAGES["about.html"] = ("About Cab Gear", "Who writes TriAmden Cab Gear and how p
       <p>From cab organization and food storage to cooking, comfort, and everyday life behind the wheel, the goal is simple: help fellow drivers make smarter choices without wasting time or money.</p>
       <p>I don't claim to have all the answers, and I certainly haven't tried every product out there. But with over a million miles behind the wheel, I've picked up plenty of lessons worth passing along.</p>
       <p class="ab-signoff">No gimmicks. No unnecessary hype. Just real-world trucking experience, one mile at a time.</p>
-      <p class="ab-follow">Follow along on the road: <a href="{FB_URL}" target="_blank" rel="noopener me">Facebook</a> · <a href="{IG_URL}" target="_blank" rel="noopener me">Instagram @triamden</a></p>
+      <p class="ab-follow">Follow along on the road: <a href="{FB_URL}" target="_blank" rel="noopener me">Facebook</a> · <a href="{IG_URL}" target="_blank" rel="noopener me">Instagram @triamden</a> · <a href="{YT_URL}" target="_blank" rel="noopener me">YouTube</a></p>
     </div>
     <ul class="ab-badges" aria-label="Topics">
       <li><a href="cab-organization-zones.html"><img src="about-badge-org.jpg" alt="Organization" width="190" height="200"></a></li>
