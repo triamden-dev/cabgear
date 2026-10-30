@@ -538,7 +538,7 @@ PAGES["about.html"] = ("About Cab Gear", "Who writes TriAmden Cab Gear and how p
 </section>
 <section class="ab-body">
   <div class="wrap ab-grid">
-    <figure class="ab-photo"><img src="about-clifford.jpg" alt="Clifford Cruickshank leaning against his truck" width="400" height="483"></figure>
+    <figure class="ab-photo"><img src="about-clifford.jpg" alt="Clifford Cruickshank, arms crossed, in a TriAmden Transportation polo with his truck behind him" width="532" height="1002"><figcaption class="ab-motto">Built for <span>the long run.</span></figcaption></figure>
     <div class="ab-text">
       <p class="ab-eyebrow">About</p>
       <h1 class="ab-title">About TriAmden Cab Gear</h1>
