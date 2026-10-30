@@ -292,6 +292,7 @@ PAGES["12v-fridge-buying-checklist.html"] = ("12V Fridge Checklist", "What truck
   <li>Noise: you'll sleep next to it. Look for stated noise levels and read reviews that mention them.</li>
   <li>Drain plug and removable baskets make cleaning easier.</li>
   <li>App control is optional. A clear physical display matters more.</li>
+  <li>Warranty: check how long it lasts and whether it covers the compressor, the most expensive part to replace.</li>
 </ul>
 
 <h2>5. Your carrier</h2>
@@ -585,6 +586,7 @@ def build():
         shutil.copy(os.path.join(ROOT, "visor-organizer.jpg"), d)
         shutil.copy(os.path.join(ROOT, "lunchbox-compare.jpg"), d)
         shutil.copy(os.path.join(ROOT, "cab-zones.jpg"), d)
+        shutil.copy(os.path.join(ROOT, "fridge-checklist.jpg"), d)
         if os.path.exists(os.path.join(ROOT, "logo.png")): shutil.copy(os.path.join(ROOT, "logo.png"), d)
     print("built", len(PAGES), "pages")
 

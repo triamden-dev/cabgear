@@ -132,3 +132,7 @@ ART["12v-lunch-box-hotlogic-vs-travelisimo.html"] = ('<img class="art art-photo"
 ART["cab-organization-zones.html"] = ('<img class="art art-photo art-contain" src="cab-zones.jpg" '
     'alt="Top-down view of a sleeper truck cab divided into five numbered zones: driver area, passenger seat, paperwork cabinet, bunk and side storage" '
     'width="1672" height="941" loading="lazy">')
+
+ART["12v-fridge-buying-checklist.html"] = ('<img class="art art-photo" src="fridge-checklist.jpg" '
+    'alt="An open 12-volt portable fridge stocked with water, meals and fruit beside a 12V fridge buying checklist on a clipboard" '
+    'width="1344" height="762" loading="lazy">')
