@@ -116,7 +116,7 @@ PAGES["index.html"] = ("TriAmden Cab Gear", "Cab organization and in-cab kitchen
 <section><div class="wrap">
   <div class="section-head"><h2>Guides</h2><a href="cab-kitchen-clutter-guide.html">Start with the gear guide</a></div>
   <ul class="cards">
-    <li class="card"><a href="cab-kitchen-clutter-guide.html"><span class="tag">Buying guide</span><h3>Cab Kitchen &amp; Clutter Control: 5 Gear Picks</h3><p>A seat-back organizer, two 12V lunch boxes, a dual-zone fridge and a steering wheel tray.</p></a></li>
+    <li class="card"><a href="cab-kitchen-clutter-guide.html"><span class="tag">Buying guide</span><h3>Cab Kitchen &amp; Clutter Control: 5 Gear Picks</h3><p>Why a visor organizer beats a seat-back one, plus two 12V lunch boxes, a dual-zone fridge and a steering wheel tray.</p></a></li>
     <li class="card"><a href="12v-lunch-box-hotlogic-vs-travelisimo.html"><span class="tag">Comparison</span><h3>HOTLOGIC Mini vs. TRAVELISIMO 100W</h3><p>Which 12V heated lunch box fits how you drive, and what to check before you buy either.</p></a></li>
     <li class="card"><a href="12v-fridge-buying-checklist.html"><span class="tag">Checklist</span><h3>12V Fridge Buying Checklist for Truck Drivers</h3><p>Space, power, battery protection and carrier rules to settle before spending a few hundred dollars.</p></a></li>
     <li class="card"><a href="cab-organization-zones.html"><span class="tag">How-to</span><h3>Organize Your Cab by Zone</h3><p>Driver's reach, passenger seat, bunk and storage: what belongs where, including the documents that must stay in the cab.</p></a></li>
@@ -136,10 +136,11 @@ PAGES["cab-kitchen-clutter-guide.html"] = ("Cab Kitchen & Clutter Control", "Fiv
 
 <h2>Organization</h2>
 <section class="pick">
-  <h3>RoadPro 14-pocket seat-back organizer</h3>
-  <p class="meta">Brand: RoadPro · Model: RPSB-14 · Mounts on a seat back</p>
-  <p>RoadPro makes accessories for the trucking market. This organizer hangs on the back of the seat and gives you fourteen pockets for paperwork, chargers, gloves and snacks. If the passenger seat has turned into the junk drawer, it's the cheapest fix on this list.</p>
-  {buy("RoadPro RPSB-14")}
+  <h3>Skip the seat-back organizer. Get a visor organizer.</h3>
+  <p>Seat-back organizers are sold everywhere as trucker gear, and I think they're a waste of money. In a truck the seats are usually pushed all the way back, so getting behind one to pull something out is impractical. A visor organizer puts the same things right above you, where you can reach them.</p>
+  <p class="meta">Pick: High Road visor organizer and document holder · Alternative: WYNEX MOLLE visor organizer</p>
+  <p>The High Road model is built around paperwork and cards, with a document pocket and smaller slots, which suits logs, bills of lading and fuel cards. The WYNEX uses a MOLLE panel if you'd rather clip on pouches. Both are sold for cars and trucks, and semi visors are larger than car visors, so check the strap length against your visor before buying.</p>
+  {buy("High Road visor organizer")} {buy("WYNEX MOLLE visor organizer")}
 </section>
 <section class="pick">
   <h3>XERGUR 2-in-1 steering wheel tray</h3>
@@ -169,7 +170,7 @@ PAGES["cab-kitchen-clutter-guide.html"] = ("Cab Kitchen & Clutter Control", "Fiv
 
 <h2>Where to start</h2>
 <ul>
-  <li><strong>Lowest cost:</strong> the seat-back organizer.</li>
+  <li><strong>Lowest cost:</strong> a visor organizer.</li>
   <li><strong>Biggest daily difference:</strong> a heated lunch box.</li>
   <li><strong>Biggest investment:</strong> a 12V fridge. Measure your space and check your power setup first.</li>
 </ul>
@@ -285,7 +286,7 @@ PAGES["cab-organization-zones.html"] = ("Organize Your Cab", "A zone-by-zone sys
 <p>Keep them together with your registration, insurance card and bills of lading in one labeled folder or a seat-back pocket, so you can hand them over quickly at an inspection.</p>
 
 <h2>Zone 3: Passenger seat and dash</h2>
-<p>This is where clutter collects. Give it a container, such as a seat-back or front-seat organizer, and empty it at every fuel stop.</p>
+<p>This is where clutter collects. Give it a container, such as a front-seat organizer, and empty it at every fuel stop. Skip seat-back organizers: with truck seats pushed all the way back, you can't reach them. Paperwork and cards are easier to grab from a visor organizer.</p>
 
 <h2>Zone 4: Sleeper and bunk</h2>
 <ul>
