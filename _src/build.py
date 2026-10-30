@@ -120,6 +120,7 @@ PAGES["index.html"] = ("TriAmden Cab Gear", "Cab organization and in-cab kitchen
     <li class="card"><a href="12v-lunch-box-hotlogic-vs-travelisimo.html"><span class="tag">Comparison</span><h3>HOTLOGIC Mini vs. TRAVELISIMO 100W</h3><p>Which 12V heated lunch box fits how you drive, and what to check before you buy either.</p></a></li>
     <li class="card"><a href="12v-fridge-buying-checklist.html"><span class="tag">Checklist</span><h3>12V Fridge Buying Checklist for Truck Drivers</h3><p>Space, power, battery protection and carrier rules to settle before spending a few hundred dollars.</p></a></li>
     <li class="card"><a href="cab-organization-zones.html"><span class="tag">How-to</span><h3>Organize Your Cab by Zone</h3><p>Driver's reach, passenger seat, bunk and storage: what belongs where, including the documents that must stay in the cab.</p></a></li>
+    <li class="card"><a href="how-i-eat-on-the-road.html"><span class="tag">Driver's take</span><h3>How I Eat on the Road</h3><p>A week of home-cooked meals, a moved-from-truck-to-truck microwave, and the backup plan when the food runs out.</p></a></li>
     <li class="card"><a href="epu-vs-idling.html"><span class="tag">Driver's take</span><h3>My EPU Keeps Waking Me Up</h3><p>Why a quiet electric power unit still costs me sleep, what idling really costs, and what I'd tell a new driver.</p></a></li>
   </ul>
 </div></section>
@@ -301,8 +302,7 @@ PAGES["cab-organization-zones.html"] = ("Organize Your Cab", "A zone-by-zone sys
 
 <h2>Keeping it clean</h2>
 <p>My rule is a place for everything and everything in its place. Organizing and cleaning go together, but they're different jobs. Organizing means every item has a home, so nothing piles up. Cleaning is quick because there's less in the way.</p>
-<p>My cleaning kit is short: a leaf blower to clear dust and crumbs out of the cab fast, wet wipes, and Amway Home L.O.C. Multi-Purpose Cleaner for the interior surfaces.</p>
-<p class="disclosure"><strong>Disclosure:</strong> I'm an independent Amway business owner, so I can earn money from Amway sales. I mention that cleaner because it's what I use.</p>
+<p>My cleaning kit is short: a leaf blower to clear dust and crumbs out of the cab fast, wet wipes, and a multi-purpose cleaner for the interior surfaces.</p>
 <p>Gear that helps with each zone is in our <a href="cab-kitchen-clutter-guide.html">gear guide</a>.</p>
 </div></article>
 """)
@@ -351,6 +351,53 @@ PAGES["epu-vs-idling.html"] = ("My EPU Keeps Waking Me Up", "A truck driver's ta
   <li><strong>Don't ignore it if it's costing you rest.</strong> If the system is keeping you from adequate sleep, raise it with your carrier or shop. Fatigue is the bigger risk.</li>
 </ul>
 <p>Have a truck whose EPU lets you sleep through the night? I'd like to hear about it: <strong>contact@triamden.com</strong>.</p>
+</div></article>
+""", "index.html")
+
+PAGES["how-i-eat-on-the-road.html"] = ("How I Eat on the Road", "How a working truck driver eats on the road: home-cooked meals, a truck microwave and fridge, and a backup plan.", f"""
+<article class="article"><div class="wrap">
+<p class="eyebrow">Driver's take</p>
+<h1>How I Eat on the Road (Without Living on Truck-Stop Food)</h1>
+<p class="byline">By Clifford Cruickshank, CDL-A driver · Updated October 2026</p>
+<p class="disclosure"><strong>Disclosure:</strong> {DISCLOSURE} This article has no product links, but other pages on this site do.</p>
+<p>Truck-stop food is easy, and that's the trap. Two or three meals a day add up fast, in money and in what they do to you. Here's how I actually eat during a week out, including the parts I'm not proud of.</p>
+
+<h2>The home-cooked week</h2>
+<p>Before I head out, my wife, Nicole, cooks enough food to last about a week. The rotation includes fried rice or pelau, baked or stewed chicken, baked or stewed pork, macaroni pie, lasagna, chunky vegetables, and sometimes beef and spinach patties.</p>
+<p>It's packed in bulk containers, not single portions labeled by day. At mealtime I take out what I want and heat my plate. The goal is a week, but some dishes run out sooner than others.</p>
+
+<h2>My truck kitchen</h2>
+<p>Two appliances do the work: the fridge and a microwave.</p>
+<ul>
+  <li><strong>Fridge.</strong> My 2022 Kenworth T680 came with a built-in refrigerator. If your truck doesn't have one, start with our <a href="12v-fridge-buying-checklist.html">12V fridge buying checklist</a>.</li>
+  <li><strong>Microwave.</strong> Not factory-installed. I bought it years ago and it has moved with me from truck to truck. It runs off the truck's inverter. A microwave pulls a lot of power, so check your inverter's rating before you plug one in. No microwave? A <a href="12v-lunch-box-hotlogic-vs-travelisimo.html">12V heated lunch box</a> is the usual alternative.</li>
+</ul>
+<p>No kettle or coffee maker here. I'm not a hot-drinks person, which is probably to my detriment.</p>
+
+<h2>Keeping it safe</h2>
+<p>Different foods keep for different lengths of time, so know what you're putting in the fridge. In my experience the home-cooked food doesn't make it past a week, and anything that sits longer gets a hard look before I eat it.</p>
+<p>For the official numbers, USDA guidance is that cooked leftovers keep <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety" rel="noopener">3 to 4 days in a refrigerator at 40°F or below</a>, or 3 to 4 months frozen, and should be reheated to 165°F. That's shorter than a full week out, so if your fridge has a freezer section, freezing the meals you'll eat later in the week is the safer way to make home food last.</p>
+<p>I also keep a bag of frozen Birds Eye potatoes as a backup for when the home-cooked meals run out.</p>
+
+<h2>When the home food runs out</h2>
+<p>I'm not much of a cook, and at my age I have no plans to change that. So my backup is prepared food that's easy to get:</p>
+<ul>
+  <li><strong>Walmart rotisserie chicken and potato salad.</strong> Many Walmart locations make room for trucks, so I can park and shop.</li>
+  <li><strong>Subway</strong> when I want something different.</li>
+</ul>
+
+<h2>Snacks: the honest version</h2>
+<p>To stay full between meals I keep protein within reach: a chocolate plant protein powder and a couple of flavors of protein bars. And I'll admit it: I also eat Doritos. I'm trying to make better choices, but I'm not going to pretend I eat perfectly.</p>
+<p>The protein matters because you sit for hours. Food that keeps you full longer makes it easier to skip the impulse buys at every fuel stop.</p>
+
+<h2>My advice: don't make truck-stop food your staple</h2>
+<p>I'm not saying never buy food at a truck stop. I do it myself when I need to. Just don't live on it. It usually costs more and is often less healthy than food you prepared yourself, and buying two or three meals a day adds up over a year.</p>
+<ul>
+  <li>Plan ahead and bring meals from home when you can.</li>
+  <li>Have a backup for when the home food runs out.</li>
+  <li>Keep filling snacks in reach so hunger doesn't make the decision for you.</li>
+</ul>
+<p>You don't need to give up convenience. You just need to stop depending on it for every meal.</p>
 </div></article>
 """, "index.html")
 
