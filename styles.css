@@ -114,3 +114,5 @@ th { font-family: var(--display); font-weight: 700; background: var(--surface); 
   .cards { grid-template-columns: minmax(0, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+.cards > li:last-child:nth-child(odd) { grid-column: 1 / -1; }
