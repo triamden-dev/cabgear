@@ -15,7 +15,8 @@ GA_ID = "G-15KT55Z8TT"  # GA4 property: TriAmden Cab Gear
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400'
-         '&family=Overpass:wght@500;600;700;800&family=Overpass+Mono:wght@500;600&display=swap">')
+         '&family=Overpass:wght@500;600;700;800&family=Overpass+Mono:wght@500;600'
+         '&family=Bebas+Neue&family=Permanent+Marker&display=swap">')
 
 # --- Amazon links ---------------------------------------------------------
 # Plain product links until the Associates account is approved.
@@ -76,6 +77,8 @@ TONES = {
 def body_class(slug):
     if slug == "index.html":
         return "home"
+    if slug == "about.html":
+        return "about-page"
     return "road-page " + TONES.get(slug, "tone-plain")
 
 
@@ -526,21 +529,41 @@ PAGES["protein-snacks-for-truck-drivers.html"] = ("Protein Snacks for Drivers", 
 """, "index.html")
 
 PAGES["about.html"] = ("About Cab Gear", "Who writes TriAmden Cab Gear and how products are chosen.", f"""
-<article class="article"><div class="wrap">
-<p class="eyebrow">About</p>
-<h1>About TriAmden Cab Gear</h1>
-<p>TriAmden Cab Gear is written by Clifford Cruickshank, a CDL-A truck driver, and published by TriAmden Marketing. The site covers gear for living and working in a truck cab: organization, food storage and in-cab cooking.</p>
-<p>I spent more than 16 years in the oil and gas industry in Trinidad and Tobago before moving to the United States in December 2016. I started driving in 2017 with Knight Transportation, have since driven for several carriers, and founded my own company, TriAmden Transportation LLC. My runs have been OTR and regional, hauling refrigerated and dry van freight across the country. Today I drive a 2022 Kenworth T680 sleeper.</p>
-<p>Years on the road taught me how much the right equipment improves a driver's comfort, efficiency and quality of life. Cab Gear shares practical recommendations and honest opinions based on real trucking experience, not marketing hype.</p>
-<h2>How we choose products</h2>
-<ul>
-  <li>We look for gear that solves a real problem drivers have in the cab.</li>
-  <li>We describe products from their listings and published specifications, and we say when something needs checking.</li>
-  <li>Every review page says whether I've personally used the product. I only describe hands-on use when I have.</li>
-  <li>I'm also an independent Amway business owner. When I mention an Amway product, I say so.</li>
-  <li>We earn a commission on some purchases, which never changes what you pay. See our <a href="affiliate-disclosure.html">affiliate disclosure</a>.</li>
-</ul>
-</div></article>
+<section class="ab-hero">
+  <div class="ab-hero-media"><img src="about-truck.jpg" alt="A black Kenworth T680 sleeper truck on a highway at sunset. Callout: Gear, organization, food on the road, real solutions." width="974" height="326"></div>
+  <div class="wrap ab-hero-copy">
+    <img class="ab-logo" src="cabgear-logo.webp" alt="TriAmden Cab Gear" width="1000" height="315">
+    <p class="ab-tagline">Real gear. Real miles. Real life.</p>
+  </div>
+</section>
+<section class="ab-body">
+  <div class="wrap ab-grid">
+    <figure class="ab-photo"><img src="about-clifford.jpg" alt="Clifford Cruickshank leaning against his truck" width="400" height="483"></figure>
+    <div class="ab-text">
+      <p class="ab-eyebrow">About</p>
+      <h1 class="ab-title">About TriAmden Cab Gear</h1>
+      <p>TriAmden Cab Gear is written by Clifford Cruickshank, a CDL-A truck driver, and published by TriAmden Marketing. The site covers gear for living and working in a truck cab: organization, food storage and in-cab cooking.</p>
+      <p>I spent more than 16 years in the oil and gas industry in Trinidad and Tobago before moving to the United States in December 2016. I started driving in 2017 with Knight Transportation, have since driven for several carriers, and founded my own company, TriAmden Transportation LLC. My runs have been OTR and regional, hauling refrigerated and dry van freight across the country. Today I drive a 2022 Kenworth T680 sleeper.</p>
+      <p>Years on the road taught me how much the right equipment improves a driver's comfort, efficiency and quality of life. Cab Gear shares practical recommendations and honest opinions based on real trucking experience, not marketing hype.</p>
+    </div>
+    <ul class="ab-badges" aria-label="Topics">
+      <li><a href="cab-organization-zones.html"><img src="about-badge-org.jpg" alt="Organization" width="190" height="200"></a></li>
+      <li><a href="protein-snacks-for-truck-drivers.html"><img src="about-badge-food.jpg" alt="Food on the road" width="210" height="200"></a></li>
+      <li><a href="how-i-eat-on-the-road.html"><img src="about-badge-cook.jpg" alt="In-cab cooking" width="200" height="200"></a></li>
+      <li><a href="cab-kitchen-clutter-guide.html"><img src="about-badge-guides.jpg" alt="Gear guides" width="200" height="200"></a></li>
+    </ul>
+  </div>
+  <div class="wrap ab-how">
+    <h2 class="ab-h2">How we choose products</h2>
+    <ul>
+      <li>We look for gear that solves a real problem drivers have in the cab.</li>
+      <li>We describe products from their listings and published specifications, and we say when something needs checking.</li>
+      <li>Every review page says whether I've personally used the product. I only describe hands-on use when I have.</li>
+      <li>I'm also an independent Amway business owner. When I mention an Amway product, I say so.</li>
+      <li>{"We earn a commission on some purchases, which never changes what you pay." if ASSOCIATE_TAG else "Our Amazon links don't earn commissions yet. When that changes, every page will say so."} See our <a href="affiliate-disclosure.html">affiliate disclosure</a>.</li>
+    </ul>
+  </div>
+</section>
 """)
 
 PAGES["affiliate-disclosure.html"] = ("Affiliate Disclosure", "How TriAmden Cab Gear earns money.", f"""
@@ -604,6 +627,8 @@ def build():
         shutil.copy(os.path.join(ROOT, "meals-microwave.jpg"), d)
         shutil.copy(os.path.join(ROOT, "protein-snacks.jpg"), d)
         shutil.copy(os.path.join(ROOT, "epu-panel.jpg"), d)
+        for f in os.listdir(ROOT):
+            if f.startswith("about-") and f.endswith(".jpg"): shutil.copy(os.path.join(ROOT, f), d)
         if os.path.exists(os.path.join(ROOT, "logo.png")): shutil.copy(os.path.join(ROOT, "logo.png"), d)
     print("built", len(PAGES), "pages")
 
