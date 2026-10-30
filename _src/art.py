@@ -118,3 +118,9 @@ def hero_scene():
     <g fill="#9aa3ab"><circle cx="40" cy="104" r="6"/><circle cx="76" cy="104" r="6"/><circle cx="270" cy="104" r="6"/><circle cx="306" cy="104" r="6"/><circle cx="372" cy="104" r="6"/><circle cx="476" cy="104" r="6"/></g>
   </g>
 </svg>"""
+
+
+# Photo replacements (supplied by Clifford)
+ART["cab-kitchen-clutter-guide.html"] = ('<img class="art art-photo" src="visor-organizer.jpg" '
+    'alt="A visor organizer in a truck cab holding paperwork, pens, a charging cable and sunglasses" '
+    'width="1448" height="1086" loading="lazy">')

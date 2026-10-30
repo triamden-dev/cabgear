@@ -550,6 +550,7 @@ def build():
         shutil.copy(os.path.join(ROOT, "styles.css"), d)
         shutil.copy(os.path.join(ROOT, "hero-truck.jpg"), d)
         shutil.copy(os.path.join(ROOT, "cabgear-logo.webp"), d)
+        shutil.copy(os.path.join(ROOT, "visor-organizer.jpg"), d)
         if os.path.exists(os.path.join(ROOT, "logo.png")): shutil.copy(os.path.join(ROOT, "logo.png"), d)
     print("built", len(PAGES), "pages")
 
