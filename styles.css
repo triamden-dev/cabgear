@@ -224,3 +224,8 @@ th { font-family: var(--display); font-weight: 700; background: var(--surface); 
 .brand-logo { display: block; height: 20px; width: auto; }
 .masthead .wrap { padding-block: .55rem; }
 @media (max-width: 480px) { .brand-logo { height: 18px; } }
+
+/* Cab Gear logo in the hero */
+.hero-logo { margin: 0 0 1.1rem; }
+.hero-logo img { display: block; width: min(30rem, 100%); height: auto; filter: drop-shadow(0 8px 22px rgba(0,0,0,.55)); }
+@media (max-width: 860px) { .hero-logo { margin-top: -3rem; } }

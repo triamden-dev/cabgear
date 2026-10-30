@@ -113,7 +113,7 @@ PAGES["index.html"] = ("TriAmden Cab Gear", "Cab organization and in-cab kitchen
 <section class="hero hero-photo">
   <div class="hero-media"><img class="hero-img" src="hero-truck.jpg" alt="An orange TriAmden Transportation semi truck on a mountain highway at sunset" width="1108" height="687"></div>
   <div class="wrap hero-copy">
-    <h1 class="badge"><span class="badge-top">TriAmden</span><span class="badge-plate">Cab Gear</span></h1>
+    <h1 class="hero-logo"><img src="cabgear-logo.webp" alt="TriAmden Cab Gear" width="1000" height="315"></h1>
     <p class="tagline">Gear for a <em>safer, cleaner,</em><br><em>more comfortable</em> road ahead.</p>
     <p class="hero-sub">Real advice from a working CDL-A driver.</p>
     <ul class="hero-icons">
@@ -549,6 +549,7 @@ def build():
     for d in (SITE, ART):
         shutil.copy(os.path.join(ROOT, "styles.css"), d)
         shutil.copy(os.path.join(ROOT, "hero-truck.jpg"), d)
+        shutil.copy(os.path.join(ROOT, "cabgear-logo.webp"), d)
         if os.path.exists(os.path.join(ROOT, "logo.png")): shutil.copy(os.path.join(ROOT, "logo.png"), d)
     print("built", len(PAGES), "pages")
 
