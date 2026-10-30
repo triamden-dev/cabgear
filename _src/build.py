@@ -302,7 +302,8 @@ PAGES["cab-organization-zones.html"] = ("Organize Your Cab", "A zone-by-zone sys
 
 <h2>Keeping it clean</h2>
 <p>My rule is a place for everything and everything in its place. Organizing and cleaning go together, but they're different jobs. Organizing means every item has a home, so nothing piles up. Cleaning is quick because there's less in the way.</p>
-<p>My cleaning kit is short: a leaf blower to clear dust and crumbs out of the cab fast, wet wipes, and a multi-purpose cleaner for the interior surfaces.</p>
+<p>My cleaning kit is short: a leaf blower to clear dust and crumbs out of the cab fast, wet wipes, and Amway Home L.O.C. Multi-Purpose Cleaner for the interior surfaces.</p>
+<p class="disclosure"><strong>Disclosure:</strong> I'm an independent Amway business owner, so I can earn money from Amway sales. I mention that cleaner because it's what I use.</p>
 <p>Gear that helps with each zone is in our <a href="cab-kitchen-clutter-guide.html">gear guide</a>.</p>
 </div></article>
 """)
@@ -387,7 +388,8 @@ PAGES["how-i-eat-on-the-road.html"] = ("How I Eat on the Road", "How a working t
 </ul>
 
 <h2>Snacks: the honest version</h2>
-<p>To stay full between meals I keep protein within reach: a chocolate plant protein powder and a couple of flavors of protein bars. And I'll admit it: I also eat Doritos. I'm trying to make better choices, but I'm not going to pretend I eat perfectly.</p>
+<p>To stay full between meals I keep protein within reach: Nutrilite Organics Plant Protein Powder in chocolate, and XS Sports Protein Bars in Chocolate Peanut Butter and Chocolate Berry. And I'll admit it: I also eat Doritos. I'm trying to make better choices, but I'm not going to pretend I eat perfectly.</p>
+<p class="disclosure"><strong>Disclosure:</strong> Nutrilite and XS are Amway brands. I'm an independent Amway business owner, so I can earn money from Amway sales. I mention these because they're what I actually eat.</p>
 <p>The protein matters because you sit for hours. Food that keeps you full longer makes it easier to skip the impulse buys at every fuel stop.</p>
 
 <h2>My advice: don't make truck-stop food your staple</h2>
