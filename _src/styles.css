@@ -236,3 +236,8 @@ th { font-family: var(--display); font-weight: 700; background: var(--surface); 
 .art-band:has(.art-photo) .art-band-inner { max-width: none; padding-left: 0; padding-right: 0; }
 .art-band .art-photo { display: block; width: 100%; max-height: 380px; aspect-ratio: auto; height: 380px; }
 @media (max-width: 760px) { .art-band .art-photo { height: 220px; } }
+
+/* Live Amazon product links */
+.buy { border-style: solid; background: var(--amber-fill); border-color: var(--amber-fill); color: #18211c; cursor: pointer; margin-right: .4rem; transition: transform .15s ease; }
+.buy:hover { transform: translateY(-1px); text-decoration: underline; }
+.buy::after { content: " ↗"; }

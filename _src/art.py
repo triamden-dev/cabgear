@@ -124,3 +124,7 @@ def hero_scene():
 ART["cab-kitchen-clutter-guide.html"] = ('<img class="art art-photo" src="visor-organizer.jpg" '
     'alt="A visor organizer in a truck cab holding paperwork, pens, a charging cable and sunglasses" '
     'width="1448" height="1086" loading="lazy">')
+
+ART["12v-lunch-box-hotlogic-vs-travelisimo.html"] = ('<img class="art art-photo" src="lunchbox-compare.jpg" '
+    'alt="A HOTLOGIC Mini heated lunch box beside a TRAVELISIMO electric lunch box at a truck stop" '
+    'width="1348" height="698" loading="lazy">')

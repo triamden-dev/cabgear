@@ -17,7 +17,36 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400'
          '&family=Overpass:wght@500;600;700;800&family=Overpass+Mono:wght@500;600&display=swap">')
 
-DISCLOSURE = "As an Amazon Associate I earn from qualifying purchases."
+# --- Amazon links ---------------------------------------------------------
+# Plain product links until the Associates account is approved.
+# On approval: set ASSOCIATE_TAG (e.g. "triamden-20") and rebuild. Every Amazon
+# link gets the tag, and every disclosure switches to Amazon's required sentence.
+ASSOCIATE_TAG = None
+PRODUCTS = {
+    "High Road visor organizer": "B0000UZ528",
+    "WYNEX MOLLE visor organizer": "B0DXF93V4W",
+    "XERGUR steering wheel tray": "B07Z92Y8JV",
+    "HOTLOGIC Mini 12V": "B074TZKCCV",
+    "TRAVELISIMO 100W": "B0D22TGD88",
+    "Feelfunn 40QT dual zone": "B0FLX846J2",
+}
+if ASSOCIATE_TAG:
+    DISCLOSURE = "As an Amazon Associate I earn from qualifying purchases."
+    DISCLOSURE_LONG = ("TriAmden Cab Gear is a participant in the Amazon Associates program. "
+                       "As an Amazon Associate I earn from qualifying purchases. Buying through our links costs you nothing extra.")
+    FOOTER_NOTE = "Links to Amazon on this site may earn us a commission at no extra cost to you."
+    AFFILIATE_PAGE = ("<p>TriAmden Cab Gear participates in the Amazon Associates Program, an affiliate advertising program "
+                      "that lets sites earn fees by linking to Amazon.com. When you click a link on this site and buy something "
+                      "on Amazon, we may earn a commission. The price you pay is the same.</p>")
+else:
+    DISCLOSURE = "TriAmden Cab Gear plans to join affiliate programs, including Amazon Associates."
+    DISCLOSURE_LONG = ("TriAmden Cab Gear plans to join affiliate programs, including Amazon Associates. "
+                       "When it does, some links may earn us a commission at no extra cost to you. Right now, our Amazon links earn us nothing.")
+    FOOTER_NOTE = "Our Amazon links don't earn commissions yet. If that changes, we'll say so here and on every article."
+    AFFILIATE_PAGE = ("<p>Right now, the Amazon links on this site are ordinary product links. We don't earn anything when you use them.</p>"
+                      "<p>We plan to join the Amazon Associates Program, an affiliate advertising program that lets sites earn fees by "
+                      "linking to Amazon.com. When we're accepted, some links will earn us a commission when you buy, at no extra cost "
+                      "to you, and this page and every article will say so.</p>")
 
 NAV = [("index.html", "Home"), ("cab-kitchen-clutter-guide.html", "Gear guide"),
        ("cab-organization-zones.html", "Organize"), ("about.html", "About")]
@@ -28,9 +57,12 @@ def note(text):
 
 
 def buy(name):
-    # Placeholder until an Associates account exists. No real affiliate links.
-    return (f'<a class="buy" role="link" aria-disabled="true" data-product="{name}">'
-            f'Amazon link pending — {name}</a>')
+    url = f"https://www.amazon.com/dp/{PRODUCTS[name]}"
+    rel = "noopener nofollow"
+    if ASSOCIATE_TAG:
+        url += f"?tag={ASSOCIATE_TAG}"
+        rel += " sponsored"
+    return f'<a class="buy" href="{url}" target="_blank" rel="{rel}">View {name} on Amazon</a>'
 
 
 def page(slug, title, desc, body, current=None):
@@ -43,8 +75,7 @@ def page(slug, title, desc, body, current=None):
         body = body.replace('<article class="article"><div class="wrap">', f'<div class="art-band"><div class="wrap art-band-inner">{ILLUS[slug]}</div></div><article class="article"><div class="wrap">', 1)
     nav = "".join(
         f'<a href="{h}"{" aria-current=\"page\"" if h == (current or slug) else ""}>{t}</a>' for h, t in NAV)
-    draft = ('<div class="draft"><div class="wrap">Preview. Amazon links are placeholders until the '
-             'Associates account is approved.</div></div>') if DRAFT else ""
+    draft = ('<div class="draft"><div class="wrap">Preview. This site is not public yet.</div></div>') if DRAFT else ""
     ga = (f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>'
           f'<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}'
           f'gtag("js",new Date());gtag("config","{GA_ID}");</script>') if GA_ID else ""
@@ -71,7 +102,7 @@ def page(slug, title, desc, body, current=None):
 {body}
 </main>
 <footer class="footer"><div class="wrap">
-  <p style="margin:0"><strong>{DISCLOSURE}</strong> Links to Amazon on this site may earn us a commission at no extra cost to you.</p>
+  <p style="margin:0"><strong>{DISCLOSURE}</strong> {FOOTER_NOTE}</p>
   <nav aria-label="Footer"><a href="affiliate-disclosure.html">Affiliate disclosure</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a><a href="about.html">About</a></nav>
   <p style="margin:0">© 2026 TriAmden Marketing. Cab Gear is written for professional drivers by a working CDL-A driver.</p>
 </div></footer>
@@ -143,7 +174,7 @@ PAGES["cab-kitchen-clutter-guide.html"] = ("Cab Kitchen & Clutter Control", "Fiv
 <p class="eyebrow">Buying guide</p>
 <h1>Cab Kitchen &amp; Clutter Control: 5 Gear Picks for Over-the-Road Drivers</h1>
 <p class="byline">By Clifford Cruickshank, CDL-A driver · Updated October 2026</p>
-<p class="disclosure"><strong>Disclosure:</strong> TriAmden Cab Gear is a participant in the Amazon Associates program. {DISCLOSURE} Buying through our links costs you nothing extra.</p>
+<p class="disclosure"><strong>Disclosure:</strong> {DISCLOSURE_LONG}</p>
 <p>A truck cab is your office, kitchen and bedroom in less floor space than most closets. Two things decide whether a long week out feels manageable: whether you can find what you need without digging, and whether you can eat something other than truck-stop food. This guide covers both.</p>
 <p>I've driven commercially since 2017, OTR and regional, hauling reefer and dry van freight. I run a 2022 Kenworth T680 sleeper with a built-in fridge, and I reheat home-cooked meals in a microwave. If your truck doesn't have those, the gear below is how you get close.</p>
 <div class="disclosure"><strong>How I picked these:</strong> I haven't tested these five products myself. I chose them from their Amazon listings, published specs and the number of customer reviews, and I've noted what to check before you buy. When I use one, I'll update this page with what I find.</div>
@@ -501,7 +532,8 @@ PAGES["affiliate-disclosure.html"] = ("Affiliate Disclosure", "How TriAmden Cab 
 <article class="article"><div class="wrap">
 <h1>Affiliate disclosure</h1>
 <p><strong>{DISCLOSURE}</strong></p>
-<p>TriAmden Cab Gear participates in the Amazon Associates Program, an affiliate advertising program that lets sites earn fees by linking to Amazon.com. When you click a link on this site and buy something on Amazon, we may earn a commission. The price you pay is the same.</p>
+{AFFILIATE_PAGE}
+<p>Separately, Clifford is an independent Amway business owner and can earn money from Amway sales. Any article that mentions an Amway product says so.</p>
 <p>Commissions don't decide what we cover. We write about gear we believe is useful to drivers, and we say plainly when we haven't tested something ourselves.</p>
 <p>Product prices and availability change. Always check the current price and details on Amazon before you buy.</p>
 </div></article>
@@ -551,6 +583,7 @@ def build():
         shutil.copy(os.path.join(ROOT, "hero-truck.jpg"), d)
         shutil.copy(os.path.join(ROOT, "cabgear-logo.webp"), d)
         shutil.copy(os.path.join(ROOT, "visor-organizer.jpg"), d)
+        shutil.copy(os.path.join(ROOT, "lunchbox-compare.jpg"), d)
         if os.path.exists(os.path.join(ROOT, "logo.png")): shutil.copy(os.path.join(ROOT, "logo.png"), d)
     print("built", len(PAGES), "pages")
 
