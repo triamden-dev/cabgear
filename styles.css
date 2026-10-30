@@ -371,3 +371,9 @@ th { font-family: var(--display); font-weight: 700; background: var(--surface); 
 .ab-grid { align-items: start; }
 .ab-photo, .ab-badges { position: sticky; top: 1.5rem; }
 @media (max-width: 760px) { .ab-photo, .ab-badges { position: static; } }
+.socials { display: inline-flex; gap: .55rem; align-items: center; margin-left: .2rem; }
+.nav a.soc { opacity: .85; display: inline-flex; }
+.nav a.soc:hover { opacity: 1; text-decoration: none; }
+.soc svg { width: 1.15rem; height: 1.15rem; fill: currentColor; display: block; }
+.ab-follow { margin-top: .75rem; }
+.ab-follow a { color: #f2b233; }
