@@ -221,6 +221,6 @@ th { font-family: var(--display); font-weight: 700; background: var(--surface); 
 @media (prefers-reduced-motion: reduce) { .hero-icons a:hover svg { transform: none; } }
 
 /* Approved TriAmden Marketing logo in the masthead */
-.brand-logo { display: block; height: 52px; width: auto; }
+.brand-logo { display: block; height: 40px; width: auto; }
 .masthead .wrap { padding-block: .55rem; }
-@media (max-width: 480px) { .brand-logo { height: 44px; } }
+@media (max-width: 480px) { .brand-logo { height: 36px; } }
