@@ -135,6 +135,9 @@ def page(slug, title, desc, body, current=None):
 <meta name="description" content="{desc}">
 {'<meta name="robots" content="noindex">' if DRAFT else og}
 {FONTS}
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="styles.css">
 {ga}
 </head>
@@ -672,6 +675,7 @@ def build():
             if f.startswith("about-") and f.endswith(".jpg"): shutil.copy(os.path.join(ROOT, f), d)
         if os.path.exists(os.path.join(ROOT, "logo.png")): shutil.copy(os.path.join(ROOT, "logo.png"), d)
         shutil.copy(os.path.join(ROOT, "og-default.jpg"), d)
+        for fv in ("favicon.ico", "favicon-32.png", "apple-touch-icon.png", "favicon-512.png"): shutil.copy(os.path.join(ROOT, fv), d)
     import datetime
     today = datetime.date.today().isoformat()
     urls = "".join(f"  <url><loc>{BASE + ('' if s == 'index.html' else s)}</loc><lastmod>{today}</lastmod></url>\n" for s in PAGES)
