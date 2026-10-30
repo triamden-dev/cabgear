@@ -120,6 +120,7 @@ PAGES["index.html"] = ("TriAmden Cab Gear", "Cab organization and in-cab kitchen
     <li class="card"><a href="12v-lunch-box-hotlogic-vs-travelisimo.html"><span class="tag">Comparison</span><h3>HOTLOGIC Mini vs. TRAVELISIMO 100W</h3><p>Which 12V heated lunch box fits how you drive, and what to check before you buy either.</p></a></li>
     <li class="card"><a href="12v-fridge-buying-checklist.html"><span class="tag">Checklist</span><h3>12V Fridge Buying Checklist for Truck Drivers</h3><p>Space, power, battery protection and carrier rules to settle before spending a few hundred dollars.</p></a></li>
     <li class="card"><a href="cab-organization-zones.html"><span class="tag">How-to</span><h3>Organize Your Cab by Zone</h3><p>Driver's reach, passenger seat, bunk and storage: what belongs where, including the documents that must stay in the cab.</p></a></li>
+    <li class="card"><a href="protein-snacks-for-truck-drivers.html"><span class="tag">Driver's take</span><h3>The Protein Snacks That Get Me Through a Shift</h3><p>What I keep within reach, what it really costs per week, and the Doritos I'm not giving up.</p></a></li>
     <li class="card"><a href="how-i-eat-on-the-road.html"><span class="tag">Driver's take</span><h3>How I Eat on the Road</h3><p>A week of home-cooked meals, a moved-from-truck-to-truck microwave, and the backup plan when the food runs out.</p></a></li>
     <li class="card"><a href="epu-vs-idling.html"><span class="tag">Driver's take</span><h3>My EPU Keeps Waking Me Up</h3><p>Why a quiet electric power unit still costs me sleep, what idling really costs, and what I'd tell a new driver.</p></a></li>
   </ul>
@@ -400,6 +401,70 @@ PAGES["how-i-eat-on-the-road.html"] = ("How I Eat on the Road", "How a working t
   <li>Keep filling snacks in reach so hunger doesn't make the decision for you.</li>
 </ul>
 <p>You don't need to give up convenience. You just need to stop depending on it for every meal.</p>
+</div></article>
+""", "index.html")
+
+PAGES["protein-snacks-for-truck-drivers.html"] = ("Protein Snacks for Drivers", "The protein shakes and bars a working truck driver keeps in the cab, what they cost per week, and how they fit his routine.", f"""
+<article class="article"><div class="wrap">
+<p class="eyebrow">Driver's take</p>
+<h1>The Protein Snacks That Get Me Through a Shift</h1>
+<p class="byline">By Clifford Cruickshank, CDL-A driver · Updated October 2026</p>
+<p class="disclosure"><strong>Disclosure:</strong> Nutrilite and XS are Amway brands. I'm an independent Amway business owner, so I can earn money when people buy Amway products. That's part of why I use them, and I'll tell you the rest below. This is my own routine, not medical or nutrition advice.</p>
+<p>I usually eat one full meal a day, sometimes two. Protein shakes and bars carry me through the rest of a long shift, so I'm not pulling off for another meal or grabbing whatever's by the register.</p>
+
+<h2>What I keep in the cab</h2>
+<section class="pick">
+  <h3>Nutrilite Organics Plant Protein Powder, Chocolate</h3>
+  <p>Two scoops and a bottle of water in a shaker cup. It tastes good enough on its own, but I also carry a mixer so I can blend in fruit, usually blueberries, strawberries or bananas. I drink one or two shakes per shift.</p>
+  <p>I've tried other protein powders and found them grainy and unpleasant. This one is smoother and tastes better to me.</p>
+  <p><strong>Cab tip:</strong> the original packaging gets messy when you scoop from it on the road. I pour the powder into a wide-mouth storage container and refill it as needed.</p>
+</section>
+<section class="pick">
+  <h3>XS Sports Protein Bars, Chocolate Peanut Butter and Chocolate Berry</h3>
+  <p>One of each per shift. I've tried other protein bars and they're okay, but I love these. I can't imagine life on the road without them.</p>
+  <p><strong>Cab tip:</strong> heat affects them, especially the Chocolate Peanut Butter. Keep them in the fridge or somewhere cool, not on the dash.</p>
+</section>
+<p>Why these two? I'll be straight with you: I'm an Amway business owner, so I want to support my own business. But I've tried the alternatives, and these are the ones I actually like.</p>
+
+<h2>What it costs</h2>
+<p>At Amway retail prices when I wrote this (October 2026):</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Product</th><th>Retail price</th><th>Per serving</th></tr></thead>
+  <tbody>
+    <tr><td>Nutrilite Chocolate Plant Protein Powder</td><td>$49.50 for 15 servings</td><td>$3.30</td></tr>
+    <tr><td>XS Chocolate Peanut Butter bars</td><td>$48.25 for 12</td><td>$4.02</td></tr>
+    <tr><td>XS Chocolate Berry bars</td><td>$48.25 for 12</td><td>$4.02</td></tr>
+  </tbody>
+</table></div>
+<p>Two bars plus one or two shakes comes to about <strong>$11.34–$14.64 per shift</strong>, or roughly <strong>$79–$102 for a seven-shift week</strong>.</p>
+
+<h2>How I think about that price</h2>
+<p>I don't look at the price of a bar by itself. I compare it to what I'd otherwise spend staying fed through a long shift. Here's a rough comparison, using my own estimates for meal prices:</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Instead of protein, I'd buy…</th><th>Per day</th><th>Per week</th><th>My routine saves about</th></tr></thead>
+  <tbody>
+    <tr><td>Two extra Walmart meals</td><td>$19.94</td><td>$139.58</td><td>$37–$60 a week</td></tr>
+    <tr><td>Two extra truck-stop meals</td><td>$24–$36</td><td>$168–$252</td><td>$66–$173 a week</td></tr>
+    <tr><td>Two Walmart meals plus $5–$10 of snacks</td><td>$24.94–$29.94</td><td>$174.58–$209.58</td><td>$72–$130 a week</td></tr>
+    <tr><td>Two truck-stop meals plus $5–$10 of snacks</td><td>$29–$46</td><td>$203–$322</td><td>$101–$243 a week</td></tr>
+  </tbody>
+</table></div>
+<p>These are what-if numbers, not measured savings. I can't say exactly how many extra meals or snacks I'd buy without the protein. And shakes and bars aren't a replacement for complete meals. They fit into my routine and help me manage my appetite.</p>
+
+<h2>What's changed for me</h2>
+<p>I'm on a weight-loss journey, and I've lost over 50 pounds. I changed several things at once: I stopped relying on truck-stop meals, I switched to prepared food from Walmart, and I added protein shakes and bars, which weren't part of my diet before. I also cut out belVita biscuits, which I used to snack on all the time until I realized how fast their calories added up.</p>
+<p>I can't credit the weight loss to any single product. It's the overall change that's working, and I'm encouraged by it. Your results will depend on your own habits, and if you're making big diet changes, check with your doctor.</p>
+
+<h2>The honest part</h2>
+<p>I still eat Doritos, usually on long stretches of driving. I enjoy them and I'm not going to pretend otherwise. Other things I snack on: peanut butter pretzels, and sometimes bread and cheese from Walmart.</p>
+<p>What doesn't work for me: I've tried beef jerky and don't like it, and I'm not a fan of Greek yogurt. If those work for you, great. Find the protein you'll actually eat.</p>
+
+<h2>Downsides</h2>
+<p>I haven't found any big ones. The main thing is planning. You don't want to run out of what you rely on halfway through a trip, so pack enough before you leave.</p>
+
+<h2>Where it starts</h2>
+<p>None of this works until you decide to change. Nobody can make that decision for you.</p>
+<p>Interested in the products I use? Email me at <strong>contact@triamden.com</strong>.</p>
 </div></article>
 """, "index.html")
 
