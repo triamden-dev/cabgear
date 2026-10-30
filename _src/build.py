@@ -9,7 +9,7 @@ from art import ART as ILLUS, hero_scene
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.join(ROOT, "..", "site")
 ART = os.path.join(ROOT, "..", "artifact")
-DRAFT = True  # shows the preview banner and noindex; set False to go live
+DRAFT = False  # shows the preview banner and noindex; set False to go live
 GA_ID = "G-15KT55Z8TT"  # GA4 property: TriAmden Cab Gear
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
@@ -98,7 +98,20 @@ def body_class(slug):
     return "road-page " + TONES.get(slug, "tone-plain")
 
 
+BASE = "https://cabgear.triamden.com/"
+
 def page(slug, title, desc, body, current=None):
+    url = BASE + ("" if slug == "index.html" else slug)
+    mimg = re.search(r'src="([^"]+\.(?:jpg|png|webp))"', ILLUS.get(slug, "")) if slug != "index.html" else None
+    ogimg = BASE + (mimg.group(1) if mimg else "og-default.jpg")
+    og = (f'<link rel="canonical" href="{url}">\n'
+          f'<meta property="og:type" content="{"website" if slug == "index.html" else "article"}">\n'
+          f'<meta property="og:site_name" content="TriAmden Cab Gear">\n'
+          f'<meta property="og:title" content="{title}">\n'
+          f'<meta property="og:description" content="{desc}">\n'
+          f'<meta property="og:url" content="{url}">\n'
+          f'<meta property="og:image" content="{ogimg}">\n'
+          f'<meta name="twitter:card" content="summary_large_image">')
     # card illustrations
     for k, svg in ILLUS.items():
         body = body.replace(f'<li class="card"><a href="{k}">', f'<li class="card"><a href="{k}"><div class="card-art">{svg}</div><div class="card-body">', 1)
@@ -120,7 +133,7 @@ def page(slug, title, desc, body, current=None):
 <title>{title}</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="{desc}">
-{'<meta name="robots" content="noindex">' if DRAFT else ''}
+{'<meta name="robots" content="noindex">' if DRAFT else og}
 {FONTS}
 <link rel="stylesheet" href="styles.css">
 {ga}
@@ -658,6 +671,12 @@ def build():
         for f in os.listdir(ROOT):
             if f.startswith("about-") and f.endswith(".jpg"): shutil.copy(os.path.join(ROOT, f), d)
         if os.path.exists(os.path.join(ROOT, "logo.png")): shutil.copy(os.path.join(ROOT, "logo.png"), d)
+        shutil.copy(os.path.join(ROOT, "og-default.jpg"), d)
+    import datetime
+    today = datetime.date.today().isoformat()
+    urls = "".join(f"  <url><loc>{BASE + ('' if s == 'index.html' else s)}</loc><lastmod>{today}</lastmod></url>\n" for s in PAGES)
+    open(os.path.join(SITE, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + '</urlset>\n')
+    open(os.path.join(SITE, "robots.txt"), "w").write(("User-agent: *\nDisallow: /\n" if DRAFT else "User-agent: *\nAllow: /\n\nSitemap: " + BASE + "sitemap.xml\n"))
     print("built", len(PAGES), "pages")
 
 
