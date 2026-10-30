@@ -155,7 +155,7 @@ PAGES["index.html"] = ("TriAmden Cab Gear", "Cab organization and in-cab kitchen
     </ul>
   </div>
 </section>
-<section><div class="wrap">
+<section class="guides"><div class="wrap">
   <div class="section-head"><h2>Guides</h2><a href="cab-kitchen-clutter-guide.html">Start with the gear guide</a></div>
   <ul class="cards">
     <li class="card"><a href="cab-kitchen-clutter-guide.html"><span class="tag">Buying guide</span><h3>Cab Kitchen &amp; Clutter Control: 5 Gear Picks</h3><p>Why a visor organizer beats a seat-back one, plus two 12V lunch boxes, a dual-zone fridge and a steering wheel tray.</p></a></li>
