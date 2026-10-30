@@ -63,7 +63,7 @@ def page(slug, title, desc, body, current=None):
 </head>
 <body>
 <header class="masthead"><div class="wrap">
-  <a class="brand" href="index.html"><span class="brand-mark">TriAmden</span><span class="brand-name">Cab Gear</span></a>
+  <a class="brand" href="index.html"><img class="brand-logo" src="logo.png" alt="TriAmden Marketing" width="360" height="128"><span class="brand-name">Cab Gear</span></a>
   <nav class="nav" aria-label="Main">{nav}</nav>
 </div></header>
 {draft}
