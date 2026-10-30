@@ -8,7 +8,8 @@ import os, re, shutil
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.join(ROOT, "..", "site")
 ART = os.path.join(ROOT, "..", "artifact")
-DRAFT = True  # shows the draft banner and editor notes; set False before going live
+DRAFT = True  # shows the preview banner and noindex; set False to go live
+GA_ID = None  # Google Analytics 4 measurement ID, e.g. "G-XXXXXXX"
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
@@ -34,8 +35,11 @@ def buy(name):
 def page(slug, title, desc, body, current=None):
     nav = "".join(
         f'<a href="{h}"{" aria-current=\"page\"" if h == (current or slug) else ""}>{t}</a>' for h, t in NAV)
-    draft = ('<div class="draft"><div class="wrap">Draft preview. Affiliate links are placeholders and '
-             '"Clifford adds" notes must be filled in before this site goes live.</div></div>') if DRAFT else ""
+    draft = ('<div class="draft"><div class="wrap">Preview. Amazon links are placeholders until the '
+             'Associates account is approved.</div></div>') if DRAFT else ""
+    ga = (f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>'
+          f'<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}'
+          f'gtag("js",new Date());gtag("config","{GA_ID}");</script>') if GA_ID else ""
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -47,6 +51,7 @@ def page(slug, title, desc, body, current=None):
 {'<meta name="robots" content="noindex">' if DRAFT else ''}
 {FONTS}
 <link rel="stylesheet" href="styles.css">
+{ga}
 </head>
 <body>
 <header class="masthead"><div class="wrap">
@@ -126,7 +131,8 @@ PAGES["cab-kitchen-clutter-guide.html"] = ("Cab Kitchen & Clutter Control", "Fiv
 <p class="byline">By Clifford Cruickshank, CDL-A driver · Updated October 2026</p>
 <p class="disclosure"><strong>Disclosure:</strong> TriAmden Cab Gear is a participant in the Amazon Associates program. {DISCLOSURE} Buying through our links costs you nothing extra.</p>
 <p>A truck cab is your office, kitchen and bedroom in less floor space than most closets. Two things decide whether a long week out feels manageable: whether you can find what you need without digging, and whether you can eat something other than truck-stop food. This guide covers both.</p>
-{note("two or three sentences in your own words about how long you've driven and what your cab setup looks like. Only what's true.")}
+<p>I've driven commercially since 2017, OTR and regional, hauling reefer and dry van freight. I run a 2022 Kenworth T680 sleeper with a built-in fridge, and I reheat home-cooked meals in a microwave. If your truck doesn't have those, the gear below is how you get close.</p>
+<div class="disclosure"><strong>How I picked these:</strong> I haven't tested these five products myself. I chose them from their Amazon listings, published specs and the number of customer reviews, and I've noted what to check before you buy. When I use one, I'll update this page with what I find.</div>
 
 <h2>Organization</h2>
 <section class="pick">
@@ -143,7 +149,7 @@ PAGES["cab-kitchen-clutter-guide.html"] = ("Cab Kitchen & Clutter Control", "Fiv
 </section>
 
 <h2>Hot meals on the road</h2>
-<p>A 12V heated lunch box plugs into the cab's power socket and warms food you packed or bought at a grocery store. The two below are the most-reviewed options we found. The <a href="12v-lunch-box-hotlogic-vs-travelisimo.html">full comparison</a> goes deeper.</p>
+<p>My routine: my wife cooks a week of meals before I head out, they go in the truck's fridge, and I reheat them in the microwave. When they run out, it's a Walmart rotisserie chicken and potato salad, or Subway for a change. That keeps me off truck-stop food most of the week. No microwave in your truck? A 12V heated lunch box plugs into the cab's power socket and warms food you packed or bought at a grocery store. The two below are the most-reviewed options we found. The <a href="12v-lunch-box-hotlogic-vs-travelisimo.html">full comparison</a> goes deeper.</p>
 <div class="table-wrap"><table>
   <thead><tr><th></th><th>HOTLOGIC Mini 12V</th><th>TRAVELISIMO 100W</th></tr></thead>
   <tbody>
@@ -160,7 +166,6 @@ PAGES["cab-kitchen-clutter-guide.html"] = ("Cab Kitchen & Clutter Control", "Fiv
   <p>A compressor fridge that runs on the truck's DC power. The two zones let you freeze in one side and refrigerate in the other, so one grocery run can cover more of the week. A 12V fridge is a bigger purchase than anything else here, so read the <a href="12v-fridge-buying-checklist.html">fridge checklist</a> before you buy any model.</p>
   {buy("Feelfunn 40QT dual zone")}
 </section>
-{note("if you own or have used any of these, say so and say what you noticed. If you haven't, leave this out — never imply you tested something you didn't.")}
 
 <h2>Where to start</h2>
 <ul>
@@ -201,7 +206,7 @@ PAGES["12v-lunch-box-hotlogic-vs-travelisimo.html"] = ("HOTLOGIC vs TRAVELISIMO"
   <li><strong>TRAVELISIMO 100W</strong> if you also want to plug it into a wall outlet at home or in a motel.</li>
 </ul>
 <p>{buy("HOTLOGIC Mini 12V")} {buy("TRAVELISIMO 100W")}</p>
-{note("which one do you use, how long does your typical meal take to heat, and what do you cook in it? Only real experience.")}
+<p class="disclosure"><strong>Where this comes from:</strong> I haven't used either one. My truck has a microwave, so I reheat meals that way. This comparison is built from the product listings and specs, for drivers who don't have a microwave.</p>
 </div></article>
 """, "cab-kitchen-clutter-guide.html")
 
@@ -218,6 +223,7 @@ PAGES["12v-fridge-buying-checklist.html"] = ("12V Fridge Checklist", "What truck
   <li>Measure the spot: width, depth and height, plus room for the lid to open.</li>
   <li>Leave clearance around the vents. Compressor fridges need airflow to run efficiently.</li>
   <li>Plan how you'll secure it. Anything loose in a cab moves in a hard stop.</li>
+  <li><strong>A door or lid that locks.</strong> Truck movement and vibration can pop a fridge open while you're driving and dump the contents across the cab. A secure latch or lock is the first thing I'd look for.</li>
 </ul>
 
 <h2>2. Cooling type</h2>
@@ -249,7 +255,7 @@ PAGES["12v-fridge-buying-checklist.html"] = ("12V Fridge Checklist", "What truck
 
 <h2>Models covered on this site</h2>
 <p>We currently cover the <a href="cab-kitchen-clutter-guide.html">Feelfunn 40QT dual-zone</a> as a mid-priced option. Premium models from brands such as ICECO cost considerably more.</p>
-{note("what fridge or cooler setup do you run, and what would you check first? Only real experience.")}
+<p>My own Kenworth came with a built-in fridge, so I haven't bought a portable one. If I were shopping, I'd weigh capacity, power draw, dimensions, cooling performance and reliability, and I wouldn't buy one without a locking door.</p>
 </div></article>
 """, "cab-kitchen-clutter-guide.html")
 
@@ -265,6 +271,7 @@ PAGES["cab-organization-zones.html"] = ("Organize Your Cab", "A zone-by-zone sys
 <ul>
   <li>Phone in a mount. Federal rules prohibit CMV drivers from holding a mobile phone while driving, so set it up for hands-free use.</li>
   <li>Sunglasses, a drink in a holder, toll and fuel cards somewhere you can reach without looking.</li>
+  <li>High-protein snacks within reach. You sit for hours, and protein keeps you full longer, which makes it easier to skip the junk at every stop.</li>
 </ul>
 
 <h2>Zone 2: Paperwork and required documents</h2>
@@ -290,8 +297,11 @@ PAGES["cab-organization-zones.html"] = ("Organize Your Cab", "A zone-by-zone sys
 <h2>Zone 5: Outside storage</h2>
 <p>Gloves, straps, tire gauge, flashlight and anything dirty or rarely used belong in the side boxes, not in your living space.</p>
 
+<h2>Keeping it clean</h2>
+<p>My rule is a place for everything and everything in its place. Organizing and cleaning go together, but they're different jobs. Organizing means every item has a home, so nothing piles up. Cleaning is quick because there's less in the way.</p>
+<p>My cleaning kit is short: a leaf blower to clear dust and crumbs out of the cab fast, wet wipes, and Amway Home L.O.C. Multi-Purpose Cleaner for the interior surfaces.</p>
+<p class="disclosure"><strong>Disclosure:</strong> I'm an independent Amway business owner, so I can earn money from Amway sales. I mention that cleaner because it's what I use.</p>
 <p>Gear that helps with each zone is in our <a href="cab-kitchen-clutter-guide.html">gear guide</a>.</p>
-{note("a photo description or two tips from your own cab. What's the one habit that keeps yours clean?")}
 </div></article>
 """)
 
@@ -300,12 +310,14 @@ PAGES["about.html"] = ("About Cab Gear", "Who writes TriAmden Cab Gear and how p
 <p class="eyebrow">About</p>
 <h1>About TriAmden Cab Gear</h1>
 <p>TriAmden Cab Gear is written by Clifford Cruickshank, a CDL-A truck driver, under TriAmden Transportation. The site covers gear for living and working in a truck cab: organization, food storage and in-cab cooking.</p>
-{note("your story in a short paragraph: how you got into trucking, the kind of runs you do, and why you started this site.")}
+<p>I spent more than 16 years in the oil and gas industry in Trinidad and Tobago before moving to the United States in December 2016. I started driving in 2017 with Knight Transportation, have since driven for several carriers, and founded my own company, TriAmden Transportation LLC. My runs have been OTR and regional, hauling refrigerated and dry van freight across the country. Today I drive a 2022 Kenworth T680 sleeper.</p>
+<p>Years on the road taught me how much the right equipment improves a driver's comfort, efficiency and quality of life. Cab Gear shares practical recommendations and honest opinions based on real trucking experience, not marketing hype.</p>
 <h2>How we choose products</h2>
 <ul>
   <li>We look for gear that solves a real problem drivers have in the cab.</li>
   <li>We describe products from their listings and published specifications, and we say when something needs checking.</li>
-  <li>We only describe hands-on use when we've actually used the product.</li>
+  <li>Every review page says whether I've personally used the product. I only describe hands-on use when I have.</li>
+  <li>I'm also an independent Amway business owner. When I mention an Amway product, I say so.</li>
   <li>We earn a commission on some purchases, which never changes what you pay. See our <a href="affiliate-disclosure.html">affiliate disclosure</a>.</li>
 </ul>
 </div></article>
@@ -324,10 +336,10 @@ PAGES["affiliate-disclosure.html"] = ("Affiliate Disclosure", "How TriAmden Cab 
 PAGES["privacy.html"] = ("Privacy Policy", "Privacy policy for TriAmden Cab Gear.", f"""
 <article class="article"><div class="wrap">
 <h1>Privacy policy</h1>
-{note("have this reviewed before launch. It must match the analytics and any email signup you actually run.")}
-<p>Effective: [launch date]</p>
+<p>Effective: October 30, 2026</p>
 <h2>What we collect</h2>
-<p>We use [analytics tool] to understand which pages people read. It collects standard information such as pages visited, approximate location and device type. We don't sell personal information.</p>
+<p>We use Google Analytics to understand where visitors come from, which pages they read and how they move around the site. It collects standard information such as pages visited, referring site, approximate location and device type. IP addresses are not stored. We don't sell personal information and we don't run an email list.</p>
+<p>You can opt out of Google Analytics on every site with Google's <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener">browser add-on</a>. See <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">how Google uses data from sites that use its services</a>.</p>
 <h2>Cookies and third parties</h2>
 <p>When you click a link to Amazon, Amazon may set cookies to track the referral, under Amazon's own privacy notice. Our analytics provider may also use cookies.</p>
 <h2>Contact</h2>
@@ -339,8 +351,7 @@ PAGES["contact.html"] = ("Contact Cab Gear", "How to reach TriAmden Cab Gear.", 
 <article class="article"><div class="wrap">
 <h1>Contact</h1>
 <p>Have a gear question, a correction or a product you think drivers should know about?</p>
-<p>Email: <strong>[contact email]</strong></p>
-{note("choose the address to publish here.")}
+<p>Email: <strong>contact@triamden.com</strong></p>
 </div></article>
 """)
 
