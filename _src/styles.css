@@ -367,3 +367,7 @@ th { font-family: var(--display); font-weight: 700; background: var(--surface); 
   font: 400 clamp(1.6rem, 3vw, 2.4rem)/.95 "Bebas Neue", var(--display); color: #fff; letter-spacing: .02em;
   background: linear-gradient(0deg, rgba(9,17,13,.92) 0%, rgba(9,17,13,0) 100%); border-radius: 0 0 6px 6px; }
 .ab-motto span { display: block; color: #f2b233; }
+.ab-signoff { font: 400 clamp(1.15rem, 2vw, 1.4rem)/1.2 "Permanent Marker", var(--display); color: #f2b233; margin-top: 1.25rem; }
+.ab-grid { align-items: start; }
+.ab-photo, .ab-badges { position: sticky; top: 1.5rem; }
+@media (max-width: 760px) { .ab-photo, .ab-badges { position: static; } }
