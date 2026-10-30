@@ -144,3 +144,7 @@ ART["how-i-eat-on-the-road.html"] = ('<img class="art art-photo" src="meals-micr
 ART["protein-snacks-for-truck-drivers.html"] = ('<img class="art art-photo" src="protein-snacks.jpg" '
     'alt="A chocolate protein shake in a shaker cup with a banana, strawberries, blueberries, protein bars and tortilla chips" '
     'width="1368" height="703" loading="lazy">')
+
+ART["epu-vs-idling.html"] = ('<img class="art art-photo" src="epu-panel.jpg" '
+    'alt="An EPU control panel glowing on the wall of a dark truck sleeper beside the bunk" '
+    'width="1118" height="1024" loading="lazy">')
