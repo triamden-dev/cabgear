@@ -135,7 +135,7 @@ def page(slug, title, desc, body, current=None):
 {body}
 </main>
 <footer class="footer"><div class="wrap">
-  <p style="margin:0">{FOOTER_SHORT}</p>
+  <p style="margin:0">{FOOTER_SHORT} {AMAZON_TERMS}</p>
   <nav aria-label="Footer"><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="{FB_URL}" target="_blank" rel="noopener me">Facebook</a><a href="{IG_URL}" target="_blank" rel="noopener me">Instagram</a><a href="{YT_URL}" target="_blank" rel="noopener me">YouTube</a></nav>
   <p style="margin:0">© 2026 TriAmden Marketing. Cab Gear is written for professional drivers by a working CDL-A driver.</p>
 </div></footer>
@@ -584,13 +584,15 @@ PAGES["about.html"] = ("About Cab Gear", "Who writes TriAmden Cab Gear and how p
       <li>We describe products from their listings and published specifications, and we say when something needs checking.</li>
       <li>Every review page says whether I've personally used the product. I only describe hands-on use when I have.</li>
       <li>I'm also an independent Amway business owner. When I mention an Amway product, I say so.</li>
-      <li>{"We earn a commission on some purchases, which never changes what you pay." if ASSOCIATE_TAG else "Our Amazon links don't earn commissions yet. When that changes, every page will say so."} See our <a href="affiliate-disclosure.html">affiliate disclosure</a>.</li>
+      <li>{"We earn a commission on some purchases, which never changes what you pay." if ASSOCIATE_TAG else "Our Amazon links don't earn commissions yet. When that changes, every page will say so."}</li>
     </ul>
   </div>
 </section>
 """)
 
-PAGES["affiliate-disclosure.html"] = ("Affiliate Disclosure", "How TriAmden Cab Gear earns money.", f"""
+# Disclosure page returns once Amazon approves (ASSOCIATE_TAG set).
+if ASSOCIATE_TAG:
+  PAGES["affiliate-disclosure.html"] = ("Affiliate Disclosure", "How TriAmden Cab Gear earns money.", f"""
 <article class="article"><div class="wrap">
 <h1>Affiliate disclosure</h1>
 <p><strong>{DISCLOSURE}</strong></p>
