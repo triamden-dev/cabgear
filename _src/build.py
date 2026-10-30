@@ -53,7 +53,7 @@ AMAZON_TERMS = ("We don't sell the products we link to. Orders placed on Amazon 
                 "and returns, shipping, warranties and refunds follow Amazon's policies and the seller's terms. "
                 "Contact Amazon or the seller for help with an order.")
 
-FB_URL = "https://www.facebook.com/TriAmden/"
+FB_URL = "https://www.facebook.com/TriAmdenMarketing/"
 IG_URL = "https://www.instagram.com/triamden/"
 YT_URL = "https://www.youtube.com/@TriAmdenMarketing"
 YT_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 8.2a3 3 0 0 0-2.1-2.1C18 5.6 12 5.6 12 5.6s-6 0-7.9.5A3 3 0 0 0 2 8.2 31 31 0 0 0 1.6 12 31 31 0 0 0 2 15.8a3 3 0 0 0 2.1 2.1c1.9.5 7.9.5 7.9.5s6 0 7.9-.5a3 3 0 0 0 2.1-2.1c.4-1.2.4-3.8.4-3.8s0-2.6-.4-3.8zM10 15V9l5.2 3z"/></svg>'
@@ -174,7 +174,7 @@ PAGES = {}
 
 PAGES["index.html"] = ("TriAmden Cab Gear", "Cab organization and in-cab kitchen gear for over-the-road truck drivers.", f"""
 <section class="hero hero-photo">
-  <div class="hero-media"><img class="hero-img" src="hero-truck.jpg" alt="An orange TriAmden Transportation semi truck on a mountain highway at sunset" width="1108" height="687"></div>
+  <div class="hero-media"><img class="hero-img" src="hero-truck.jpg" alt="An orange semi truck with TriAmden Cab Gear logos on a mountain highway at sunset" width="1108" height="687"></div>
   <div class="wrap hero-copy">
     <h1 class="hero-logo"><img src="cabgear-logo.webp" alt="TriAmden Cab Gear" width="1000" height="315"></h1>
     <p class="tagline">Gear for a <em>safer, cleaner,</em><br><em>more comfortable</em> road ahead.</p>
@@ -553,7 +553,7 @@ PAGES["about.html"] = ("About Cab Gear", "Who writes TriAmden Cab Gear and how p
 </section>
 <section class="ab-body">
   <div class="wrap ab-grid">
-    <figure class="ab-photo"><img src="about-clifford.jpg" alt="Clifford Cruickshank, arms crossed, in a TriAmden Transportation polo with his truck behind him" width="532" height="1002"><figcaption class="ab-motto">Built for <span>the long run.</span></figcaption></figure>
+    <figure class="ab-photo"><img src="about-clifford.jpg" alt="Clifford Cruickshank, arms crossed, in a black polo with his truck behind him" width="532" height="1002"><figcaption class="ab-motto">Built for <span>the long run.</span></figcaption></figure>
     <div class="ab-text">
       <p class="ab-eyebrow">Real Gear. Real Miles. Real Life.</p>
       <h1 class="ab-title">About Cab Gear</h1>
