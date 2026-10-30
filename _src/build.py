@@ -184,6 +184,7 @@ def page(slug, title, desc, body, current=None):
 <meta name="description" content="{desc}">
 {'<meta name="robots" content="noindex">' if DRAFT else og}
 {FONTS}
+<meta name="p:domain_verify" content="aeaeca8c26ca3080610c8a4b63c0a5b9">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
