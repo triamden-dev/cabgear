@@ -140,3 +140,7 @@ ART["12v-fridge-buying-checklist.html"] = ('<img class="art art-photo" src="frid
 ART["how-i-eat-on-the-road.html"] = ('<img class="art art-photo" src="meals-microwave.jpg" '
     'alt="Home-cooked meals in glass containers next to a plate of chicken, rice and broccoli and a microwave in a truck cab" '
     'width="1341" height="737" loading="lazy">')
+
+ART["protein-snacks-for-truck-drivers.html"] = ('<img class="art art-photo" src="protein-snacks.jpg" '
+    'alt="A chocolate protein shake in a shaker cup with a banana, strawberries, blueberries, protein bars and tortilla chips" '
+    'width="1368" height="703" loading="lazy">')
