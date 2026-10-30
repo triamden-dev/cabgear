@@ -65,6 +65,20 @@ def buy(name):
     return f'<a class="buy" href="{url}" target="_blank" rel="{rel}">View {name} on Amazon</a>'
 
 
+TONES = {
+    "epu-vs-idling.html": "tone-warm", "how-i-eat-on-the-road.html": "tone-warm",
+    "protein-snacks-for-truck-drivers.html": "tone-warm",
+    "cab-kitchen-clutter-guide.html": "tone-cool", "12v-lunch-box-hotlogic-vs-travelisimo.html": "tone-cool",
+    "12v-fridge-buying-checklist.html": "tone-cool", "cab-organization-zones.html": "tone-cool",
+}
+
+
+def body_class(slug):
+    if slug == "index.html":
+        return "home"
+    return "road-page " + TONES.get(slug, "tone-plain")
+
+
 def page(slug, title, desc, body, current=None):
     # card illustrations
     for k, svg in ILLUS.items():
@@ -92,7 +106,7 @@ def page(slug, title, desc, body, current=None):
 <link rel="stylesheet" href="styles.css">
 {ga}
 </head>
-<body>
+<body class="{body_class(slug)}">
 <header class="masthead"><div class="wrap">
   <a class="brand" href="index.html"><img class="brand-logo" src="logo.png" alt="TriAmden Marketing, home of Cab Gear" width="360" height="128"></a>
   <nav class="nav" aria-label="Main">{nav}</nav>
@@ -575,7 +589,7 @@ def build():
         if slug == "index.html":
             head = re.search(r"<head>(.*?)</head>", html, re.S).group(1)
             head = re.sub(r'<meta charset="utf-8">\s*|<meta name="viewport"[^>]*>\s*', "", head)
-            body_ = re.search(r"<body>(.*)</body>", html, re.S).group(1)
+            body_ = re.search(r"<body[^>]*>(.*)</body>", html, re.S).group(1)
             open(os.path.join(ART, slug), "w").write(head.strip() + "\n" + body_)
         else:
             open(os.path.join(ART, slug), "w").write(html)
