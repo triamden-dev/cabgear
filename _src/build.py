@@ -136,7 +136,7 @@ def page(slug, title, desc, body, current=None):
 </main>
 <footer class="footer"><div class="wrap">
   <p style="margin:0">{FOOTER_SHORT}</p>
-  <nav aria-label="Footer"><a href="affiliate-disclosure.html">Affiliate disclosure</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="{FB_URL}" target="_blank" rel="noopener me">Facebook</a><a href="{IG_URL}" target="_blank" rel="noopener me">Instagram</a><a href="{YT_URL}" target="_blank" rel="noopener me">YouTube</a></nav>
+  <nav aria-label="Footer"><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="{FB_URL}" target="_blank" rel="noopener me">Facebook</a><a href="{IG_URL}" target="_blank" rel="noopener me">Instagram</a><a href="{YT_URL}" target="_blank" rel="noopener me">YouTube</a></nav>
   <p style="margin:0">© 2026 TriAmden Marketing. Cab Gear is written for professional drivers by a working CDL-A driver.</p>
 </div></footer>
 </body>
