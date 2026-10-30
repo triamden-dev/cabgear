@@ -73,7 +73,7 @@ def page(slug, title, desc, body, current=None):
 <footer class="footer"><div class="wrap">
   <p style="margin:0"><strong>{DISCLOSURE}</strong> Links to Amazon on this site may earn us a commission at no extra cost to you.</p>
   <nav aria-label="Footer"><a href="affiliate-disclosure.html">Affiliate disclosure</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a><a href="about.html">About</a></nav>
-  <p style="margin:0">© 2026 TriAmden Transportation. Cab Gear is written for professional drivers by a working CDL-A driver.</p>
+  <p style="margin:0">© 2026 TriAmden Marketing. Cab Gear is written for professional drivers by a working CDL-A driver.</p>
 </div></footer>
 </body>
 </html>
@@ -110,13 +110,18 @@ def hos_svg():
 PAGES = {}
 
 PAGES["index.html"] = ("TriAmden Cab Gear", "Cab organization and in-cab kitchen gear for over-the-road truck drivers.", f"""
-<section class="hero">
-  {hero_scene()}
+<section class="hero hero-photo">
+  <div class="hero-media"><img class="hero-img" src="hero-truck.jpg" alt="An orange TriAmden Transportation semi truck on a mountain highway at sunset" width="1108" height="687"></div>
   <div class="wrap hero-copy">
-    <p class="eyebrow">For OTR and regional drivers</p>
-    <h1>Gear that makes the cab work like home.</h1>
-    <p class="lede">Real advice from a working CDL-A driver: how to stay organized, eat better and actually sleep in a truck for weeks at a time.</p>
-    <a class="hero-cta" href="cab-kitchen-clutter-guide.html">Start with the gear guide</a>
+    <h1 class="badge"><span class="badge-top">TriAmden</span><span class="badge-plate">Cab Gear</span></h1>
+    <p class="tagline">Gear for a <em>safer, cleaner,</em><br><em>more comfortable</em> road ahead.</p>
+    <p class="hero-sub">Real advice from a working CDL-A driver.</p>
+    <ul class="hero-icons">
+      <li><a href="epu-vs-idling.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3v9a2 2 0 0 0 2 2h6M8 14l-1 7M16 14l2 7M6 21h14M16 14v-3h3"/></svg><span>Cab comfort</span></a></li>
+      <li><a href="cab-organization-zones.html"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg><span>Organization</span></a></li>
+      <li><a href="how-i-eat-on-the-road.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h16v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM2 10h20M9 6c0-1 1-1 1-2M14 6c0-1 1-1 1-2"/></svg><span>Cab kitchen</span></a></li>
+      <li><a href="cab-kitchen-clutter-guide.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6z"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg><span>Gear that works</span></a></li>
+    </ul>
   </div>
 </section>
 <section><div class="wrap">
@@ -478,7 +483,7 @@ PAGES["about.html"] = ("About Cab Gear", "Who writes TriAmden Cab Gear and how p
 <article class="article"><div class="wrap">
 <p class="eyebrow">About</p>
 <h1>About TriAmden Cab Gear</h1>
-<p>TriAmden Cab Gear is written by Clifford Cruickshank, a CDL-A truck driver, under TriAmden Transportation. The site covers gear for living and working in a truck cab: organization, food storage and in-cab cooking.</p>
+<p>TriAmden Cab Gear is written by Clifford Cruickshank, a CDL-A truck driver, and published by TriAmden Marketing. The site covers gear for living and working in a truck cab: organization, food storage and in-cab cooking.</p>
 <p>I spent more than 16 years in the oil and gas industry in Trinidad and Tobago before moving to the United States in December 2016. I started driving in 2017 with Knight Transportation, have since driven for several carriers, and founded my own company, TriAmden Transportation LLC. My runs have been OTR and regional, hauling refrigerated and dry van freight across the country. Today I drive a 2022 Kenworth T680 sleeper.</p>
 <p>Years on the road taught me how much the right equipment improves a driver's comfort, efficiency and quality of life. Cab Gear shares practical recommendations and honest opinions based on real trucking experience, not marketing hype.</p>
 <h2>How we choose products</h2>
@@ -543,6 +548,8 @@ def build():
             open(os.path.join(ART, slug), "w").write(html)
     for d in (SITE, ART):
         shutil.copy(os.path.join(ROOT, "styles.css"), d)
+        shutil.copy(os.path.join(ROOT, "hero-truck.jpg"), d)
+        if os.path.exists(os.path.join(ROOT, "logo.png")): shutil.copy(os.path.join(ROOT, "logo.png"), d)
     print("built", len(PAGES), "pages")
 
 

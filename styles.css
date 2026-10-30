@@ -181,3 +181,41 @@ th { font-family: var(--display); font-weight: 700; background: var(--surface); 
   .cards > li:last-child:nth-child(odd) .card-art { border-bottom: 0; border-right: 3px solid var(--amber-fill); }
   .cards > li:last-child:nth-child(odd) .card-body { align-content: center; padding: 1.5rem; }
 }
+
+/* ---------- Photo hero (TriAmden banner) ---------- */
+.hero-photo { background: #0a0f14; color: #fff; display: block; }
+.hero-media { position: absolute; top: 0; right: 0; height: 100%; max-width: 62%; overflow: hidden; }
+.hero-photo .hero-img { display: block; height: 100%; width: auto; max-width: none; }
+.hero-media::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, #0a0f14 0%, rgba(10,15,20,.6) 12%, rgba(10,15,20,0) 30%), linear-gradient(0deg, rgba(10,15,20,.45), rgba(10,15,20,0) 25%); }
+.hero-photo .hero-copy { position: relative; z-index: 2; padding-block: 3rem 2.75rem; max-width: 72rem; }
+.badge { margin: 0 0 1.1rem; display: inline-grid; justify-items: center; gap: .1rem; padding: .7rem 1.4rem 1rem;
+  border: 3px solid #f2b233; border-radius: 10px; background: linear-gradient(160deg, #1f262c, #0d1216);
+  box-shadow: 0 0 0 2px #0a0f14, 0 0 28px rgba(242,178,51,.25), inset 0 1px 0 rgba(255,255,255,.08); transform: skewX(-6deg); }
+.badge-top { font: italic 800 clamp(2.6rem, 6.5vw, 4.6rem)/1 var(--display); letter-spacing: .02em; text-transform: uppercase;
+  background: linear-gradient(180deg, #ffd977 0%, #f2b233 55%, #b97a08 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
+  -webkit-text-stroke: 1px rgba(0,0,0,.35); filter: drop-shadow(0 3px 0 #000); }
+.badge-plate { font: 800 clamp(1rem, 2.2vw, 1.45rem)/1 var(--display); letter-spacing: .28em; text-transform: uppercase;
+  background: #f2b233; color: #111; padding: .45rem .9rem .35rem; border-radius: 4px; }
+.tagline { font: 600 clamp(1.1rem, 2.3vw, 1.6rem)/1.35 var(--display); letter-spacing: .06em; text-transform: uppercase; margin: 0 0 .5rem; color: #fff; }
+.tagline em { font-style: normal; color: #f2b233; font-weight: 800; }
+.hero-sub { margin: 0 0 1.6rem; color: #c9d3da; }
+.hero-icons { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0; max-width: 40rem; }
+.hero-icons li { flex: 1 1 0; min-width: 6.5rem; border-left: 1px solid rgba(242,178,51,.35); }
+.hero-icons li:first-child { border-left: 0; }
+.hero-icons a { display: grid; justify-items: center; gap: .55rem; padding: .3rem .5rem; color: #fff; text-decoration: none; text-align: center;
+  font: 800 .82rem/1.15 var(--display); letter-spacing: .06em; text-transform: uppercase; }
+.hero-icons svg { width: 3.4rem; height: 3.4rem; padding: .8rem; border: 3px solid #f2b233; border-radius: 50%; fill: none; stroke: #fff; stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round; transition: transform .2s ease, background .2s ease; }
+.hero-icons a:hover svg { transform: translateY(-3px); background: rgba(242,178,51,.18); }
+
+@media (max-width: 860px) {
+  .hero-photo .hero-img { position: static; width: 100%; height: auto; max-width: 100%; aspect-ratio: 1108 / 687; object-position: center; }
+  .hero-media { position: static; max-width: 100%; height: auto; }
+  .hero-media::after { background: linear-gradient(0deg, #0a0f14, rgba(10,15,20,0) 35%); }
+  .hero-photo .hero-copy { padding-block: 1.5rem 2.25rem; }
+  .badge { margin-top: -3.5rem; }
+}
+@media (max-width: 480px) {
+  .hero-icons li { flex: 1 1 45%; border-left: 0; padding-block: .5rem; }
+}
+@media (prefers-reduced-motion: reduce) { .hero-icons a:hover svg { transform: none; } }
