@@ -4,6 +4,7 @@ Outputs:
   ../artifact/  same pages; index.html as a fragment for the Artifact preview
 """
 import os, re, shutil
+from art import ART as ILLUS, hero_scene
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.join(ROOT, "..", "site")
@@ -33,6 +34,13 @@ def buy(name):
 
 
 def page(slug, title, desc, body, current=None):
+    # card illustrations
+    for k, svg in ILLUS.items():
+        body = body.replace(f'<li class="card"><a href="{k}">', f'<li class="card"><a href="{k}"><div class="card-art">{svg}</div><div class="card-body">', 1)
+    body = re.sub(r'(<li class="card">.*?</p>)(</a></li>)', lambda m: m.group(1) + ('</div>' if 'card-body' in m.group(1) else '') + m.group(2), body, flags=re.S)
+    # article header art
+    if slug in ILLUS and slug != "index.html":
+        body = body.replace('<article class="article"><div class="wrap">', f'<div class="art-band"><div class="wrap art-band-inner">{ILLUS[slug]}</div></div><article class="article"><div class="wrap">', 1)
     nav = "".join(
         f'<a href="{h}"{" aria-current=\"page\"" if h == (current or slug) else ""}>{t}</a>' for h, t in NAV)
     draft = ('<div class="draft"><div class="wrap">Preview. Amazon links are placeholders until the '
@@ -102,17 +110,15 @@ def hos_svg():
 PAGES = {}
 
 PAGES["index.html"] = ("TriAmden Cab Gear", "Cab organization and in-cab kitchen gear for over-the-road truck drivers.", f"""
-<section class="hero"><div class="wrap">
-  <div>
+<section class="hero">
+  {hero_scene()}
+  <div class="wrap hero-copy">
     <p class="eyebrow">For OTR and regional drivers</p>
     <h1>Gear that makes the cab work like home.</h1>
-    <p class="lede">Your truck is your office, your kitchen and your bedroom. Cab Gear covers what helps a driver stay organized, eat better on the road and live in a small space for weeks at a time.</p>
+    <p class="lede">Real advice from a working CDL-A driver: how to stay organized, eat better and actually sleep in a truck for weeks at a time.</p>
+    <a class="hero-cta" href="cab-kitchen-clutter-guide.html">Start with the gear guide</a>
   </div>
-  <figure class="grid-card" style="margin:0">
-    {hos_svg()}
-    <figcaption>Illustration only: an example day on a duty-status grid. The gear on this site is about the hours that aren't driving.</figcaption>
-  </figure>
-</div></section>
+</section>
 <section><div class="wrap">
   <div class="section-head"><h2>Guides</h2><a href="cab-kitchen-clutter-guide.html">Start with the gear guide</a></div>
   <ul class="cards">
