@@ -174,7 +174,7 @@ PAGES = {}
 
 PAGES["index.html"] = ("TriAmden Cab Gear", "Cab organization and in-cab kitchen gear for over-the-road truck drivers.", f"""
 <section class="hero hero-photo">
-  <div class="hero-media"><img class="hero-img" src="hero-truck.jpg" alt="An orange semi truck with TriAmden Cab Gear logos on a mountain highway at sunset" width="1108" height="687"></div>
+  <div class="hero-media"><img class="hero-img" src="hero-truck.jpg" alt="An orange TriAmden Transportation semi truck on a mountain highway at sunset" width="1108" height="687"></div>
   <div class="wrap hero-copy">
     <h1 class="hero-logo"><img src="cabgear-logo.webp" alt="TriAmden Cab Gear" width="1000" height="315"></h1>
     <p class="tagline">Gear for a <em>safer, cleaner,</em><br><em>more comfortable</em> road ahead.</p>
@@ -553,7 +553,7 @@ PAGES["about.html"] = ("About Cab Gear", "Who writes TriAmden Cab Gear and how p
 </section>
 <section class="ab-body">
   <div class="wrap ab-grid">
-    <figure class="ab-photo"><img src="about-clifford.jpg" alt="Clifford Cruickshank, arms crossed, in a black polo with his truck behind him" width="532" height="1002"><figcaption class="ab-motto">Built for <span>the long run.</span></figcaption></figure>
+    <figure class="ab-photo"><img src="about-clifford.jpg" alt="Clifford Cruickshank, arms crossed, in a TriAmden Transportation polo with his truck behind him" width="532" height="1002"><figcaption class="ab-motto">Built for <span>the long run.</span></figcaption></figure>
     <div class="ab-text">
       <p class="ab-eyebrow">Real Gear. Real Miles. Real Life.</p>
       <h1 class="ab-title">About Cab Gear</h1>
