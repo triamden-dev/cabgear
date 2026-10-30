@@ -9,7 +9,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.join(ROOT, "..", "site")
 ART = os.path.join(ROOT, "..", "artifact")
 DRAFT = True  # shows the preview banner and noindex; set False to go live
-GA_ID = None  # Google Analytics 4 measurement ID, e.g. "G-XXXXXXX"
+GA_ID = "G-15KT55Z8TT"  # GA4 property: TriAmden Cab Gear
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
