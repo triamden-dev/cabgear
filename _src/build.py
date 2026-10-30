@@ -120,6 +120,7 @@ PAGES["index.html"] = ("TriAmden Cab Gear", "Cab organization and in-cab kitchen
     <li class="card"><a href="12v-lunch-box-hotlogic-vs-travelisimo.html"><span class="tag">Comparison</span><h3>HOTLOGIC Mini vs. TRAVELISIMO 100W</h3><p>Which 12V heated lunch box fits how you drive, and what to check before you buy either.</p></a></li>
     <li class="card"><a href="12v-fridge-buying-checklist.html"><span class="tag">Checklist</span><h3>12V Fridge Buying Checklist for Truck Drivers</h3><p>Space, power, battery protection and carrier rules to settle before spending a few hundred dollars.</p></a></li>
     <li class="card"><a href="cab-organization-zones.html"><span class="tag">How-to</span><h3>Organize Your Cab by Zone</h3><p>Driver's reach, passenger seat, bunk and storage: what belongs where, including the documents that must stay in the cab.</p></a></li>
+    <li class="card"><a href="epu-vs-idling.html"><span class="tag">Driver's take</span><h3>My EPU Keeps Waking Me Up</h3><p>Why a quiet electric power unit still costs me sleep, what idling really costs, and what I'd tell a new driver.</p></a></li>
   </ul>
 </div></section>
 """)
@@ -305,6 +306,53 @@ PAGES["cab-organization-zones.html"] = ("Organize Your Cab", "A zone-by-zone sys
 <p>Gear that helps with each zone is in our <a href="cab-kitchen-clutter-guide.html">gear guide</a>.</p>
 </div></article>
 """)
+
+PAGES["epu-vs-idling.html"] = ("My EPU Keeps Waking Me Up", "A truck driver's take on factory electric power units, idling and getting real sleep on a 10-hour break.", f"""
+<article class="article"><div class="wrap">
+<p class="eyebrow">Driver's take</p>
+<h1>My EPU Keeps Waking Me Up: A Driver's Take on Electric Power Units vs. Idling</h1>
+<p class="byline">By Clifford Cruickshank, CDL-A driver · Updated October 2026</p>
+<p>My 2022 Kenworth T680 came with a factory-installed EPU, an electric power unit. On paper it's the right answer to overnight idling. In practice, every two to three hours the truck starts its own engine to recharge the batteries, and that startup jolts me out of my sleep.</p>
+<p>A quiet EPU isn't much use if the truck keeps waking you up to recharge it.</p>
+
+<h2>How the system works</h2>
+<p>An EPU is a battery-powered system. While the engine is off, the batteries run the cab's power, and air conditioning can be tied into the system as well. When the batteries drop low enough, the truck starts the engine automatically to recharge them, then shuts back down.</p>
+<p>I'm not certain of the exact model on my truck, and I haven't timed how long each charging cycle runs. What I do know is how often it happens: roughly every two to three hours, which can mean several wake-ups during a 10-hour break.</p>
+
+<h2>It's not the noise. It's the interruption.</h2>
+<p>The problem isn't just sound. It's being pulled out of sleep, over and over, when you're trying to get real rest before another day behind the wheel. Federal hours-of-service rules give property-carrying drivers a 10-hour off-duty break so they can recover. A break broken up every few hours isn't the rest it's supposed to be.</p>
+<p>I haven't found any driver-accessible setting that changes how the auto-start works, such as the battery threshold or charging interval. If one exists on my truck, I haven't found it.</p>
+
+<h2>It could be worse</h2>
+<p>About a year ago I drove a Freightliner that did the same automatic restarts, with an extra problem: every time the engine started to charge, the air conditioning blasted cold air no matter what temperature I had set. When the engine shut off, the system brought the cab back to my setting. My Kenworth doesn't do that. My only complaint with it is the repeated engine starts.</p>
+
+<h2>So I often idle instead</h2>
+<p>My carrier prefers that I don't idle, and I understand why. Idling burns fuel, adds engine wear and raises operating costs. Even so, when it comes down to sleep, I'll idle. A rested driver matters more than a few extra gallons of diesel, and I'm sure my carrier would rather pay for some maintenance than have a tired driver cause a crash.</p>
+<p>Idling isn't free, though, and you should know what it costs:</p>
+<ul>
+  <li><strong>Fuel.</strong> My boss estimates that idling over a seven-day stretch can run about $600 a week in diesel, roughly $86 a day. That's his number, not one I've measured, and your cost depends on your engine, how long you idle and the price of diesel.</li>
+  <li><strong>Emissions system wear.</strong> Extended idling can cause problems with the diesel particulate filter (DPF) and other emissions parts, including NOx sensor faults.</li>
+  <li><strong>Downtime.</strong> When an emissions repair is needed, the bill isn't only parts and labor. It's also the money you don't make while the truck sits in the shop.</li>
+  <li><strong>Local rules.</strong> Many states and cities limit how long a truck may idle. The rules vary by place, so check before you idle overnight somewhere new. The American Transportation Research Institute keeps a <a href="https://truckingresearch.org/" rel="noopener">compendium of state and local idling regulations</a>.</li>
+</ul>
+<p>You're not alone in this. The U.S. Department of Energy says <a href="https://afdc.energy.gov/conserve/idle_reduction_heavy.html" rel="noopener">more than one million long-haul trucks idle during required rest periods every day</a>.</p>
+
+<h2>What EPUs get right</h2>
+<p>To be fair, electric power units have real advantages. They're quiet while running on battery power. They're designed to need less maintenance than diesel-powered APUs. And they cut unnecessary idling, which saves fuel and reduces emissions. My issue isn't with electric power. It's that a system meant to improve life on the road shouldn't keep interrupting the driver's sleep.</p>
+
+<h2>What would change my mind</h2>
+<p>Personally, I think diesel-powered APUs are the better solution today. If an electric system could reliably give about 12 hours of standby power without restarting the engine, I'd change my opinion. Until then, I want a system that delivers steady power and comfort without waking me up.</p>
+
+<h2>What I'd tell a new driver with an EPU</h2>
+<ul>
+  <li><strong>Learn how your truck is set up.</strong> Some carriers program trucks to shut down after only a few minutes of idling. In that case you may not have a choice.</li>
+  <li><strong>Pay attention to your sleep.</strong> Some drivers sleep right through the auto-starts. Others, like me, don't.</li>
+  <li><strong>Know your carrier's policy</strong> and the idling rules where you park.</li>
+  <li><strong>Don't ignore it if it's costing you rest.</strong> If the system is keeping you from adequate sleep, raise it with your carrier or shop. Fatigue is the bigger risk.</li>
+</ul>
+<p>Have a truck whose EPU lets you sleep through the night? I'd like to hear about it: <strong>contact@triamden.com</strong>.</p>
+</div></article>
+""", "index.html")
 
 PAGES["about.html"] = ("About Cab Gear", "Who writes TriAmden Cab Gear and how products are chosen.", f"""
 <article class="article"><div class="wrap">
