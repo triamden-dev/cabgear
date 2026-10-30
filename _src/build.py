@@ -65,8 +65,57 @@ SOCIAL = (f'<a class="soc" href="{FB_URL}" target="_blank" rel="noopener me" ari
           f'<a class="soc" href="{IG_URL}" target="_blank" rel="noopener me" aria-label="TriAmden on Instagram">{IG_SVG}</a>'
           f'<a class="soc" href="{YT_URL}" target="_blank" rel="noopener me" aria-label="TriAmden on YouTube">{YT_SVG}</a>')
 
+SHOP_URL = "https://www.etsy.com/shop/TriAmdenMarketing"
+MUGS = {
+ "epu-dear-epu-let-me-sleep": ("Dear EPU, Please Let Me Sleep", "4606492649/dear-epu-please-let-me-sleep-mug-funny"),
+ "epu-every-peaceful-unrest": ("Every Peaceful Unrest", "4606494609/every-peaceful-unrest-epu-mug-funny"),
+ "epu-exhausted-pissed-unrested": ("Exhausted, Pissed, Unrested", "4606495551/exhausted-pissed-unrested-epu-mug-funny"),
+ "my-office-has-18-wheels-truck": ("My Office Has 18 Wheels", "4606496415/my-office-has-18-wheels-mug-funny"),
+ "i-dont-cook-i-reheat": ("I Don't Cook. I Reheat.", "4606516096/i-dont-cook-i-reheat-mug-funny-trucker"),
+ "my-kitchen-travels-at-65-mph": ("My Kitchen Travels at 65 MPH", "4606497269/my-kitchen-travels-at-65-mph-mug-funny"),
+ "no-kettle-no-coffee-no-problem": ("No Kettle. No Coffee. No Problem.", "4606517152/no-kettle-no-coffee-no-problem-mug-funny"),
+ "my-cab-my-rules": ("My Cab. My Rules.", "4606517822/my-cab-my-rules-mug-funny-trucker-coffee"),
+ "my-cab-is-cleaner-than-your-office": ("My Cab Is Cleaner Than Your Office", "4606499171/my-cab-is-cleaner-than-your-office-mug"),
+ "keep-it-clean-keep-it-rolling": ("Keep It Clean. Keep It Rolling.", "4606519264/keep-it-clean-keep-it-rolling-mug-funny"),
+ "leaf-blower-clean-certified": ("Leaf Blower Clean Certified", "4606500615/leaf-blower-clean-certified-mug-funny"),
+ "a-place-for-everything": ("A Place for Everything", "4606520638/a-place-for-everything-mug-funny-trucker"),
+ "organized-chaos-is-still-chaos": ("Organized Chaos Is Still Chaos", "4606501907/organized-chaos-is-still-chaos-mug-funny"),
+ "my-patience-has-an-hos-limit": ("My Patience Has an HOS Limit", "4606522064/my-patience-has-an-hos-limit-mug-funny"),
+ "my-other-home-has-a-sleeper": ("My Other Home Has a Sleeper", "4606504001/my-other-home-has-a-sleeper-mug-funny"),
+ "real-gear-real-miles-real-life": ("Real Gear. Real Miles. Real Life.", "4606523776/real-gear-real-miles-real-life-mug-funny"),
+ "living-life-one-load-at-a-time": ("Living Life One Load at a Time", "4606524484/living-life-one-load-at-a-time-mug-funny"),
+ "heavy-hauls-lighter-me": ("Heavy Hauls. Lighter Me.", "4606505299/heavy-hauls-lighter-me-mug-funny-trucker"),
+ "shakes-bars-and-diesel": ("Shakes, Bars & Diesel", "4606525576/shakes-bars-and-diesel-mug-funny-trucker"),
+ "shaking-my-way-across-america": ("Shaking My Way Across America", "4606526318/shaking-my-way-across-america-mug-funny"),
+ "and-im-cute-too": ("And I'm Cute Too", "4606526978/and-im-cute-too-mug-funny-trucker-coffee"),
+ "whats-your-position": ("What's Your Position?", "4606507803/whats-your-position-mug-funny-trucker"),
+}
+PAGE_MUGS = {
+ "index.html": ("From the Cab Gear shop", ["epu-dear-epu-let-me-sleep", "i-dont-cook-i-reheat", "my-office-has-18-wheels-truck", "my-patience-has-an-hos-limit"]),
+ "epu-vs-idling.html": ("Mugs for every driver your EPU has woken up", ["epu-dear-epu-let-me-sleep", "epu-every-peaceful-unrest", "epu-exhausted-pissed-unrested"]),
+ "how-i-eat-on-the-road.html": ("For the cab kitchen", ["i-dont-cook-i-reheat", "my-kitchen-travels-at-65-mph", "no-kettle-no-coffee-no-problem"]),
+ "cab-organization-zones.html": ("For the organized cab", ["a-place-for-everything", "organized-chaos-is-still-chaos", "my-cab-is-cleaner-than-your-office"]),
+ "protein-snacks-for-truck-drivers.html": ("For drivers eating clean on the road", ["shakes-bars-and-diesel", "shaking-my-way-across-america", "heavy-hauls-lighter-me"]),
+ "cab-kitchen-clutter-guide.html": ("For drivers who keep a clean cab", ["my-cab-is-cleaner-than-your-office", "leaf-blower-clean-certified", "keep-it-clean-keep-it-rolling"]),
+ "12v-lunch-box-hotlogic-vs-travelisimo.html": ("For the cab kitchen", ["i-dont-cook-i-reheat", "my-kitchen-travels-at-65-mph", "no-kettle-no-coffee-no-problem"]),
+ "12v-fridge-buying-checklist.html": ("For the cab kitchen", ["my-kitchen-travels-at-65-mph", "i-dont-cook-i-reheat", "shakes-bars-and-diesel"]),
+ "about.html": ("Designed by a working driver", ["real-gear-real-miles-real-life", "my-other-home-has-a-sleeper", "living-life-one-load-at-a-time", "my-cab-my-rules"]),
+}
+
+def shop_strip(slug):
+    if slug not in PAGE_MUGS: return ""
+    head, keys = PAGE_MUGS[slug]
+    cards = "".join(
+        f'<li><a href="https://www.etsy.com/listing/{MUGS[k][1]}" target="_blank" rel="noopener">'
+        f'<img src="shop/{k}.jpg" alt="Black mug with the {MUGS[k][0]} design" width="640" height="480" loading="lazy">'
+        f'<span>{MUGS[k][0]}</span><em>Mug on Etsy</em></a></li>' for k in keys)
+    return (f'<section class="shop-strip"><div class="wrap"><div class="section-head"><h2>{head}</h2>'
+            f'<a href="{SHOP_URL}" target="_blank" rel="noopener">See all designs on Etsy</a></div>'
+            f'<ul class="shop-cards">{cards}</ul>'
+            f'<p class="shop-note">Our own designs, sold in the TriAmden Marketing Etsy shop. We earn from these sales.</p></div></section>')
+
 NAV = [("index.html", "Home"), ("cab-kitchen-clutter-guide.html", "Gear guide"),
-       ("cab-organization-zones.html", "Organize"), ("about.html", "About")]
+       ("cab-organization-zones.html", "Organize"), ("about.html", "About"), (SHOP_URL, "Shop")]
 
 
 def note(text):
@@ -149,6 +198,7 @@ def page(slug, title, desc, body, current=None):
 {draft}
 <main>
 {body}
+{shop_strip(slug)}
 </main>
 <footer class="footer"><div class="wrap">
   <p style="margin:0">{FOOTER_SHORT} {AMAZON_TERMS}</p>
@@ -675,6 +725,7 @@ def build():
             if f.startswith("about-") and f.endswith(".jpg"): shutil.copy(os.path.join(ROOT, f), d)
         if os.path.exists(os.path.join(ROOT, "logo.png")): shutil.copy(os.path.join(ROOT, "logo.png"), d)
         shutil.copy(os.path.join(ROOT, "og-default.jpg"), d)
+        shutil.copytree(os.path.join(ROOT, "shop"), os.path.join(d, "shop"), dirs_exist_ok=True)
         for fv in ("favicon.ico", "favicon-32.png", "apple-touch-icon.png", "favicon-512.png"): shutil.copy(os.path.join(ROOT, fv), d)
     import datetime
     today = datetime.date.today().isoformat()

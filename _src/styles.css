@@ -377,3 +377,14 @@ th { font-family: var(--display); font-weight: 700; background: var(--surface); 
 .soc svg { width: 1.15rem; height: 1.15rem; fill: currentColor; display: block; }
 .ab-follow { margin-top: .75rem; }
 .ab-follow a { color: #f2b233; }
+.shop-strip { background: linear-gradient(180deg, #0b1410, #0a0f14); padding-block: 2.5rem 3rem; color: #e9eef2; }
+.shop-strip .section-head h2 { color: #fff; }
+.shop-strip .section-head a { color: #f2b233; }
+.shop-cards { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr)); gap: 1rem; }
+.shop-cards a { display: block; text-decoration: none; color: #fff; background: #121a20; border: 1px solid rgba(242,178,51,.25); border-radius: 10px; overflow: hidden; transition: transform .15s, border-color .15s; }
+.shop-cards a:hover { transform: translateY(-3px); border-color: #f2b233; }
+.shop-cards img { width: 100%; height: auto; display: block; }
+.shop-cards span { display: block; padding: .7rem .85rem .1rem; font: 700 1rem/1.25 var(--display); }
+.shop-cards em { display: block; padding: 0 .85rem .8rem; font-style: normal; font-size: .85rem; color: #f2b233; }
+.shop-note { margin: 1rem 0 0; font-size: .85rem; color: #aab4bc; }
+@media (prefers-reduced-motion: reduce) { .shop-cards a:hover { transform: none; } }
