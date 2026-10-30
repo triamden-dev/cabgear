@@ -36,6 +36,7 @@ if ASSOCIATE_TAG:
     DISCLOSURE_LONG = ("TriAmden Cab Gear is a participant in the Amazon Associates program. "
                        "As an Amazon Associate I earn from qualifying purchases. Buying through our links costs you nothing extra.")
     FOOTER_NOTE = "Links to Amazon on this site may earn us a commission at no extra cost to you."
+    FOOTER_SHORT = "As an Amazon Associate I earn from qualifying purchases."
     AFFILIATE_PAGE = ("<p>TriAmden Cab Gear participates in the Amazon Associates Program, an affiliate advertising program "
                       "that lets sites earn fees by linking to Amazon.com. When you click a link on this site and buy something "
                       "on Amazon, we may earn a commission. The price you pay is the same.</p>")
@@ -44,6 +45,7 @@ else:
     DISCLOSURE_LONG = ("TriAmden Cab Gear plans to join affiliate programs, including Amazon Associates. "
                        "When it does, some links may earn us a commission at no extra cost to you. Right now, our Amazon links earn us nothing.")
     FOOTER_NOTE = "Our Amazon links don't earn commissions yet. If that changes, we'll say so here and on every article."
+    FOOTER_SHORT = "Our Amazon links don't earn commissions yet."
     AFFILIATE_PAGE = ("<p>Right now, the Amazon links on this site are ordinary product links. We don't earn anything when you use them.</p>"
                       "<p>We plan to join the Amazon Associates Program, an affiliate advertising program that lets sites earn fees by "
                       "linking to Amazon.com. When we're accepted, some links will earn us a commission when you buy, at no extra cost "
@@ -133,8 +135,7 @@ def page(slug, title, desc, body, current=None):
 {body}
 </main>
 <footer class="footer"><div class="wrap">
-  <p style="margin:0"><strong>{DISCLOSURE}</strong> {FOOTER_NOTE}</p>
-  <p style="margin:0">{AMAZON_TERMS}</p>
+  <p style="margin:0">{FOOTER_SHORT}</p>
   <nav aria-label="Footer"><a href="affiliate-disclosure.html">Affiliate disclosure</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a><a href="about.html">About</a><a href="{FB_URL}" target="_blank" rel="noopener me">Facebook</a><a href="{IG_URL}" target="_blank" rel="noopener me">Instagram</a><a href="{YT_URL}" target="_blank" rel="noopener me">YouTube</a></nav>
   <p style="margin:0">© 2026 TriAmden Marketing. Cab Gear is written for professional drivers by a working CDL-A driver.</p>
 </div></footer>
