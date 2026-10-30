@@ -320,7 +320,10 @@ PAGES["cab-organization-zones.html"] = ("Organize Your Cab", "A zone-by-zone sys
   <li>High-protein snacks within reach. You sit for hours, and protein keeps you full longer, which makes it easier to skip the junk at every stop.</li>
 </ul>
 
-<h2>Zone 2: Paperwork and required documents</h2>
+<h2>Zone 2: Passenger seat and dash</h2>
+<p>This is where clutter collects. Give it a container, such as a front-seat organizer, and empty it at every fuel stop. Skip seat-back organizers: with truck seats pushed all the way back, you can't reach them. Paperwork and cards are easier to grab from a visor organizer.</p>
+
+<h2>Zone 3: Paperwork and required documents</h2>
 <p>If your truck uses an ELD, FMCSA requires you to keep these in the cab:</p>
 <ul>
   <li>The ELD user's manual</li>
@@ -328,10 +331,7 @@ PAGES["cab-organization-zones.html"] = ("Organize Your Cab", "A zone-by-zone sys
   <li>An instruction sheet for reporting ELD malfunctions</li>
   <li>A supply of blank driver's records of duty status graph-grids, enough for at least 8 days</li>
 </ul>
-<p>Keep them together with your registration, insurance card and bills of lading in one labeled folder or a seat-back pocket, so you can hand them over quickly at an inspection.</p>
-
-<h2>Zone 3: Passenger seat and dash</h2>
-<p>This is where clutter collects. Give it a container, such as a front-seat organizer, and empty it at every fuel stop. Skip seat-back organizers: with truck seats pushed all the way back, you can't reach them. Paperwork and cards are easier to grab from a visor organizer.</p>
+<p>Keep them together with your registration, insurance card and bills of lading in one labeled folder or a visor organizer, so you can hand them over quickly at an inspection.</p>
 
 <h2>Zone 4: Sleeper and bunk</h2>
 <ul>
@@ -340,8 +340,8 @@ PAGES["cab-organization-zones.html"] = ("Organize Your Cab", "A zone-by-zone sys
   <li>A small trash bag you change daily.</li>
 </ul>
 
-<h2>Zone 5: Outside storage</h2>
-<p>Gloves, straps, tire gauge, flashlight and anything dirty or rarely used belong in the side boxes, not in your living space.</p>
+<h2>Zone 5: Side storage</h2>
+<p>Water, tools, gloves, straps, a tire gauge, a flashlight and anything you use rarely go in the side cabinets. Anything dirty belongs in the outside side boxes, not in your living space.</p>
 
 <h2>Keeping it clean</h2>
 <p>My rule is a place for everything and everything in its place. Organizing and cleaning go together, but they're different jobs. Organizing means every item has a home, so nothing piles up. Cleaning is quick because there's less in the way.</p>
@@ -584,6 +584,7 @@ def build():
         shutil.copy(os.path.join(ROOT, "cabgear-logo.webp"), d)
         shutil.copy(os.path.join(ROOT, "visor-organizer.jpg"), d)
         shutil.copy(os.path.join(ROOT, "lunchbox-compare.jpg"), d)
+        shutil.copy(os.path.join(ROOT, "cab-zones.jpg"), d)
         if os.path.exists(os.path.join(ROOT, "logo.png")): shutil.copy(os.path.join(ROOT, "logo.png"), d)
     print("built", len(PAGES), "pages")
 

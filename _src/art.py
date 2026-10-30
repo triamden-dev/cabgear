@@ -128,3 +128,7 @@ ART["cab-kitchen-clutter-guide.html"] = ('<img class="art art-photo" src="visor-
 ART["12v-lunch-box-hotlogic-vs-travelisimo.html"] = ('<img class="art art-photo" src="lunchbox-compare.jpg" '
     'alt="A HOTLOGIC Mini heated lunch box beside a TRAVELISIMO electric lunch box at a truck stop" '
     'width="1348" height="698" loading="lazy">')
+
+ART["cab-organization-zones.html"] = ('<img class="art art-photo art-contain" src="cab-zones.jpg" '
+    'alt="Top-down view of a sleeper truck cab divided into five numbered zones: driver area, passenger seat, paperwork cabinet, bunk and side storage" '
+    'width="1672" height="941" loading="lazy">')
