@@ -49,6 +49,10 @@ else:
                       "linking to Amazon.com. When we're accepted, some links will earn us a commission when you buy, at no extra cost "
                       "to you, and this page and every article will say so.</p>")
 
+AMAZON_TERMS = ("We don't sell the products we link to. Orders placed on Amazon are sold and shipped by Amazon or its sellers, "
+                "and returns, shipping, warranties and refunds follow Amazon's policies and the seller's terms. "
+                "Contact Amazon or the seller for help with an order.")
+
 NAV = [("index.html", "Home"), ("cab-kitchen-clutter-guide.html", "Gear guide"),
        ("cab-organization-zones.html", "Organize"), ("about.html", "About")]
 
@@ -120,6 +124,7 @@ def page(slug, title, desc, body, current=None):
 </main>
 <footer class="footer"><div class="wrap">
   <p style="margin:0"><strong>{DISCLOSURE}</strong> {FOOTER_NOTE}</p>
+  <p style="margin:0">{AMAZON_TERMS}</p>
   <nav aria-label="Footer"><a href="affiliate-disclosure.html">Affiliate disclosure</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a><a href="about.html">About</a></nav>
   <p style="margin:0">© 2026 TriAmden Marketing. Cab Gear is written for professional drivers by a working CDL-A driver.</p>
 </div></footer>
@@ -571,6 +576,8 @@ PAGES["affiliate-disclosure.html"] = ("Affiliate Disclosure", "How TriAmden Cab 
 <h1>Affiliate disclosure</h1>
 <p><strong>{DISCLOSURE}</strong></p>
 {AFFILIATE_PAGE}
+<h2>Orders, returns and warranties</h2>
+<p>{AMAZON_TERMS}</p>
 <p>Separately, Clifford is an independent Amway business owner and can earn money from Amway sales. Any article that mentions an Amway product says so.</p>
 <p>Commissions don't decide what we cover. We write about gear we believe is useful to drivers, and we say plainly when we haven't tested something ourselves.</p>
 <p>Product prices and availability change. Always check the current price and details on Amazon before you buy.</p>
