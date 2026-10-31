@@ -65,7 +65,7 @@ SOCIAL = (f'<a class="soc" href="{FB_URL}" target="_blank" rel="noopener me" ari
           f'<a class="soc" href="{IG_URL}" target="_blank" rel="noopener me" aria-label="TriAmden on Instagram">{IG_SVG}</a>'
           f'<a class="soc" href="{YT_URL}" target="_blank" rel="noopener me" aria-label="TriAmden on YouTube">{YT_SVG}</a>')
 
-SHOP_URL = "https://www.etsy.com/shop/TriAmdenMarketing"
+SHOP_URL = "https://triamdenmarketing.etsy.com"
 MUGS = {
  "epu-dear-epu-let-me-sleep": ("Dear EPU, Please Let Me Sleep", "4606492649/dear-epu-please-let-me-sleep-mug-funny"),
  "epu-every-peaceful-unrest": ("Every Peaceful Unrest", "4606494609/every-peaceful-unrest-epu-mug-funny"),
@@ -126,7 +126,7 @@ def shop_strip(slug):
             k = k[2:]; name, path = TUMBLERS[k]; img, kind = f"tumbler-{k}", "20oz tumbler"
         else:
             name, path = MUGS[k]; img, kind = k, "mug"
-        return (f'<li><a href="https://www.etsy.com/listing/{path}" target="_blank" rel="noopener">'
+        return (f'<li><a href="https://triamdenmarketing.etsy.com/listing/{path}" target="_blank" rel="noopener">'
                 f'<img src="shop/{img}.jpg" alt="Black {kind} with the {name} design" width="640" height="480" loading="lazy">'
                 f'<span>{name}</span><em>{kind[0].upper()+kind[1:]} on Etsy</em></a></li>')
     cards = "".join(card(k) for k in keys)
