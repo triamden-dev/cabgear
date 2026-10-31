@@ -90,25 +90,37 @@ MUGS = {
  "and-im-cute-too": ("And I'm Cute Too", "4606526978/and-im-cute-too-mug-funny-trucker-coffee"),
  "whats-your-position": ("What's Your Position?", "4606507803/whats-your-position-mug-funny-trucker"),
 }
+TUMBLERS = {
+ "epu-dear-epu-let-me-sleep": ("Dear EPU, Please Let Me Sleep", "4606548553/dear-epu-please-let-me-sleep-tumbler"),
+ "i-dont-cook-i-reheat": ("I Don't Cook. I Reheat.", "4606549371/i-dont-cook-i-reheat-tumbler-truck"),
+ "my-office-has-18-wheels-truck": ("My Office Has 18 Wheels", "4606550113/my-office-has-18-wheels-tumbler-truck"),
+ "my-patience-has-an-hos-limit": ("My Patience Has an HOS Limit", "4606876567/my-patience-has-an-hos-limit-tumbler"),
+ "my-cab-is-cleaner-than-your-office": ("My Cab Is Cleaner Than Your Office", "4606898790/my-cab-is-cleaner-than-your-office"),
+}
 PAGE_MUGS = {
- "index.html": ("From the Cab Gear shop", ["epu-dear-epu-let-me-sleep", "i-dont-cook-i-reheat", "my-office-has-18-wheels-truck", "my-patience-has-an-hos-limit"]),
- "epu-vs-idling.html": ("Mugs for every driver your EPU has woken up", ["epu-dear-epu-let-me-sleep", "epu-every-peaceful-unrest", "epu-exhausted-pissed-unrested"]),
- "how-i-eat-on-the-road.html": ("For the cab kitchen", ["i-dont-cook-i-reheat", "my-kitchen-travels-at-65-mph", "no-kettle-no-coffee-no-problem"]),
+ "index.html": ("From the Cab Gear shop", ["epu-dear-epu-let-me-sleep", "t:i-dont-cook-i-reheat", "my-office-has-18-wheels-truck", "t:my-patience-has-an-hos-limit"]),
+ "epu-vs-idling.html": ("Mugs and tumblers for every driver your EPU has woken up", ["epu-dear-epu-let-me-sleep", "t:epu-dear-epu-let-me-sleep", "epu-every-peaceful-unrest", "epu-exhausted-pissed-unrested"]),
+ "how-i-eat-on-the-road.html": ("For the cab kitchen", ["i-dont-cook-i-reheat", "t:i-dont-cook-i-reheat", "my-kitchen-travels-at-65-mph", "no-kettle-no-coffee-no-problem"]),
  "cab-organization-zones.html": ("For the organized cab", ["a-place-for-everything", "organized-chaos-is-still-chaos", "my-cab-is-cleaner-than-your-office"]),
  "protein-snacks-for-truck-drivers.html": ("For drivers eating clean on the road", ["shakes-bars-and-diesel", "shaking-my-way-across-america", "heavy-hauls-lighter-me"]),
- "cab-kitchen-clutter-guide.html": ("For drivers who keep a clean cab", ["my-cab-is-cleaner-than-your-office", "leaf-blower-clean-certified", "keep-it-clean-keep-it-rolling"]),
+ "cab-kitchen-clutter-guide.html": ("For drivers who keep a clean cab", ["my-cab-is-cleaner-than-your-office", "t:my-cab-is-cleaner-than-your-office", "leaf-blower-clean-certified", "keep-it-clean-keep-it-rolling"]),
  "12v-lunch-box-hotlogic-vs-travelisimo.html": ("For the cab kitchen", ["i-dont-cook-i-reheat", "my-kitchen-travels-at-65-mph", "no-kettle-no-coffee-no-problem"]),
  "12v-fridge-buying-checklist.html": ("For the cab kitchen", ["my-kitchen-travels-at-65-mph", "i-dont-cook-i-reheat", "shakes-bars-and-diesel"]),
- "about.html": ("Designed by a working driver", ["real-gear-real-miles-real-life", "my-other-home-has-a-sleeper", "living-life-one-load-at-a-time", "my-cab-my-rules"]),
+ "about.html": ("Designed by a working driver", ["real-gear-real-miles-real-life", "t:my-office-has-18-wheels-truck", "living-life-one-load-at-a-time", "my-cab-my-rules"]),
 }
 
 def shop_strip(slug):
     if slug not in PAGE_MUGS: return ""
     head, keys = PAGE_MUGS[slug]
-    cards = "".join(
-        f'<li><a href="https://www.etsy.com/listing/{MUGS[k][1]}" target="_blank" rel="noopener">'
-        f'<img src="shop/{k}.jpg" alt="Black mug with the {MUGS[k][0]} design" width="640" height="480" loading="lazy">'
-        f'<span>{MUGS[k][0]}</span><em>Mug on Etsy</em></a></li>' for k in keys)
+    def card(k):
+        if k.startswith("t:"):
+            k = k[2:]; name, path = TUMBLERS[k]; img, kind = f"tumbler-{k}", "tumbler"
+        else:
+            name, path = MUGS[k]; img, kind = k, "mug"
+        return (f'<li><a href="https://www.etsy.com/listing/{path}" target="_blank" rel="noopener">'
+                f'<img src="shop/{img}.jpg" alt="Black {kind} with the {name} design" width="640" height="480" loading="lazy">'
+                f'<span>{name}</span><em>{kind.capitalize()} on Etsy</em></a></li>')
+    cards = "".join(card(k) for k in keys)
     return (f'<section class="shop-strip"><div class="wrap"><div class="section-head"><h2>{head}</h2>'
             f'<a href="{SHOP_URL}" target="_blank" rel="noopener">See all designs on Etsy</a></div>'
             f'<ul class="shop-cards">{cards}</ul>'
