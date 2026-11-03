@@ -113,6 +113,7 @@ PAGE_MUGS = {
  "cab-kitchen-clutter-guide.html": ("For drivers who keep a clean cab", ["my-cab-is-cleaner-than-your-office", "t:my-cab-is-cleaner-than-your-office", "x:my-cab-is-cleaner-than-your-office", "leaf-blower-clean-certified"]),
  "12v-lunch-box-hotlogic-vs-travelisimo.html": ("For the cab kitchen", ["i-dont-cook-i-reheat", "my-kitchen-travels-at-65-mph", "no-kettle-no-coffee-no-problem"]),
  "12v-fridge-buying-checklist.html": ("For the cab kitchen", ["my-kitchen-travels-at-65-mph", "i-dont-cook-i-reheat", "x:my-patience-has-an-hos-limit", "shakes-bars-and-diesel"]),
+ "gifts-for-truck-drivers.html": ("Gifts from the Cab Gear shop", ["epu-dear-epu-let-me-sleep", "x:epu-dear-epu-let-me-sleep", "t:i-dont-cook-i-reheat", "my-office-has-18-wheels-truck"]),
  "about.html": ("Designed by a working driver", ["real-gear-real-miles-real-life", "t:my-office-has-18-wheels-truck", "living-life-one-load-at-a-time", "my-cab-my-rules"]),
 }
 
@@ -154,7 +155,7 @@ def buy(name):
 
 TONES = {
     "epu-vs-idling.html": "tone-warm", "how-i-eat-on-the-road.html": "tone-warm",
-    "protein-snacks-for-truck-drivers.html": "tone-warm",
+    "protein-snacks-for-truck-drivers.html": "tone-warm", "gifts-for-truck-drivers.html": "tone-warm",
     "cab-kitchen-clutter-guide.html": "tone-cool", "12v-lunch-box-hotlogic-vs-travelisimo.html": "tone-cool",
     "12v-fridge-buying-checklist.html": "tone-cool", "cab-organization-zones.html": "tone-cool",
 }
@@ -279,6 +280,7 @@ PAGES["index.html"] = ("TriAmden Cab Gear", "Cab organization and in-cab kitchen
 <section class="guides"><div class="wrap">
   <div class="section-head"><h2>Guides</h2><a href="cab-kitchen-clutter-guide.html">Start with the gear guide</a></div>
   <ul class="cards">
+    <li class="card"><a href="gifts-for-truck-drivers.html"><span class="tag">Gift guide</span><h3>Gifts for Truck Drivers They'll Actually Use</h3><p>Hot meals, cold food, better sleep, an organized cab and a cup that fits the cupholder, plus what to skip.</p></a></li>
     <li class="card"><a href="cab-kitchen-clutter-guide.html"><span class="tag">Buying guide</span><h3>Cab Kitchen &amp; Clutter Control: 5 Gear Picks</h3><p>Why a visor organizer beats a seat-back one, plus two 12V lunch boxes, a dual-zone fridge and a steering wheel tray.</p></a></li>
     <li class="card"><a href="12v-lunch-box-hotlogic-vs-travelisimo.html"><span class="tag">Comparison</span><h3>HOTLOGIC Mini vs. TRAVELISIMO 100W</h3><p>Which 12V heated lunch box fits how you drive, and what to check before you buy either.</p></a></li>
     <li class="card"><a href="12v-fridge-buying-checklist.html"><span class="tag">Checklist</span><h3>12V Fridge Buying Checklist for Truck Drivers</h3><p>Space, power, battery protection and carrier rules to settle before spending a few hundred dollars.</p></a></li>
@@ -629,6 +631,59 @@ PAGES["protein-snacks-for-truck-drivers.html"] = ("Protein Snacks for Drivers", 
 <h2>Where it starts</h2>
 <p>None of this works until you decide to change. Nobody can make that decision for you.</p>
 <p>Interested in the products I use? Email me at <strong>contact@triamden.com</strong>.</p>
+</div></article>
+""", "index.html")
+
+PAGES["gifts-for-truck-drivers.html"] = ("Gifts for Truck Drivers", "Practical gift ideas for truck drivers from a working CDL-A driver: hot meals, cold food, better sleep, an organized cab and a cup that fits the cupholder.", f"""
+<article class="article"><div class="wrap">
+<p class="eyebrow">Gift guide</p>
+<h1>Gifts for Truck Drivers They'll Actually Use</h1>
+<p class="byline">By Clifford Cruickshank, CDL-A driver · Updated November 2026</p>
+<p class="disclosure"><strong>Disclosure:</strong> The mugs and tumblers in this guide are my own designs, sold in the TriAmden Marketing Etsy shop, and I earn from those sales. The other ideas link to guides on this site. Nothing else here pays me.</p>
+<p>Buying for a driver is tricky. The cab is small, everything has to earn its spot, and most of us already have a phone mount. The best gifts solve a problem we deal with every shift: eating well, sleeping well and keeping the cab under control.</p>
+
+<h2>Before you buy: three questions</h2>
+<ul>
+  <li><strong>What does the truck already have?</strong> Some trucks come with a fridge and microwave built in. My 2022 Kenworth T680 has both, so a second fridge would be wasted space.</li>
+  <li><strong>Where would it go?</strong> Ask about the space, or measure it on home time. A great gift that doesn't fit ends up in the garage.</li>
+  <li><strong>How does it get power?</strong> Most cab gear runs on 12V. Anything that needs a regular wall plug also needs an inverter in the truck.</li>
+</ul>
+
+<h2>1. A hot meal without a truck stop</h2>
+<p>If the truck has no microwave, a 12V heated lunch box changes how a driver eats. Pack a home-cooked meal, plug it in a few hours before the break, and it's hot when you stop.</p>
+<p>I compared two popular ones here: <a href="12v-lunch-box-hotlogic-vs-travelisimo.html">HOTLOGIC vs TRAVELISIMO</a>.</p>
+
+<h2>2. Cold food that lasts the whole run</h2>
+<p>A 12V fridge lets a driver keep a week of real food instead of living on gas-station snacks. It's the bigger-ticket gift on this list, so check the space and the power draw first.</p>
+<p>Use this before you buy: <a href="12v-fridge-buying-checklist.html">12V fridge buying checklist</a>.</p>
+
+<h2>3. Better sleep on a 10-hour break</h2>
+<p>Sleep is the thing drivers lose first. Blackout curtains for the bunk, a good eye mask, earplugs and a pillow from home all help. None of it is exciting. All of it gets used every night.</p>
+<p>If the truck has an EPU or idles overnight, read <a href="epu-vs-idling.html">My EPU Keeps Waking Me Up</a> before you shop. It'll tell you what kind of noise you're fighting.</p>
+
+<h2>4. A cab that stays organized</h2>
+<p>A visor organizer for the paperwork and a steering wheel tray for meals and the laptop are cheap, small and used every day. My picks are in the <a href="cab-kitchen-clutter-guide.html">cab kitchen and clutter guide</a>, and the full system is in <a href="cab-organization-zones.html">Organize Your Cab</a>.</p>
+
+<h2>5. Something to drink from that fits the cupholder</h2>
+<p>Every driver goes through coffee, and every driver has a story about the EPU, reheated meals or the HOS clock. That's where my own designs come in:</p>
+<ul>
+  <li><strong>Black 20oz insulated tumbler</strong> for the cupholder</li>
+  <li><strong>White 40oz tumbler with a handle and straw</strong> for a full shift of water or iced coffee</li>
+  <li><strong>11oz black mug</strong> for home time</li>
+</ul>
+<p>The <strong>EPU Collection</strong> is the one drivers laugh at first: "Dear EPU, Please Let Me Sleep" is the prayer every trucker with an EPU says before going to bed. Everything is made to order and ships free in the US. <a href="{SHOP_URL}" target="_blank" rel="noopener">See all the designs on Etsy</a>.</p>
+
+<h2>6. When you're not sure</h2>
+<p>A gift card for the truck stop chain they use most covers meals, snacks and supplies on the road. It's not personal, but it's never wasted.</p>
+
+<h2>What to skip</h2>
+<ul>
+  <li>Anything big or heavy. Space and weight both matter.</li>
+  <li>Glass or anything fragile. It won't survive the first pothole.</li>
+  <li>Anything that needs a wall plug when the truck has no inverter.</li>
+  <li>Another phone mount. We have one. We probably have three.</li>
+</ul>
+<p>From one driver: the best gift is the one that makes the next shift a little easier.</p>
 </div></article>
 """, "index.html")
 
