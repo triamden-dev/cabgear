@@ -112,8 +112,7 @@ PAGE_MUGS = {
  "protein-snacks-for-truck-drivers.html": ("For drivers eating clean on the road", ["shakes-bars-and-diesel", "shaking-my-way-across-america", "heavy-hauls-lighter-me"]),
  "cab-kitchen-clutter-guide.html": ("For drivers who keep a clean cab", ["my-cab-is-cleaner-than-your-office", "t:my-cab-is-cleaner-than-your-office", "x:my-cab-is-cleaner-than-your-office", "leaf-blower-clean-certified"]),
  "12v-lunch-box-hotlogic-vs-travelisimo.html": ("For the cab kitchen", ["i-dont-cook-i-reheat", "my-kitchen-travels-at-65-mph", "no-kettle-no-coffee-no-problem"]),
- "12v-fridge-buying-checklist.html": ("For the cab kitchen", ["my-kitchen-travels-at-65-mph", "i-dont-cook-i-reheat", "x:my-patience-has-an-hos-limit", "shakes-bars-and-diesel"]),
- "winter-cab-prep-checklist.html": ("For the winter run", ["my-cab-is-cleaner-than-your-office", "t:my-office-has-18-wheels-truck", "x:my-patience-has-an-hos-limit"]),
+ "12v-fridge-buying-checklist.html": ("For the cab kitchen", ["my-kitchen-travels-at-65-mph", "i-dont-cook-i-reheat", "t:my-patience-has-an-hos-limit", "shakes-bars-and-diesel"]),
  "gifts-for-truck-drivers.html": ("Gifts from the Cab Gear shop", ["epu-dear-epu-let-me-sleep", "x:epu-dear-epu-let-me-sleep", "t:i-dont-cook-i-reheat", "my-office-has-18-wheels-truck"]),
  "about.html": ("Designed by a working driver", ["real-gear-real-miles-real-life", "t:my-office-has-18-wheels-truck", "living-life-one-load-at-a-time", "my-cab-my-rules"]),
 }
@@ -129,7 +128,7 @@ def shop_strip(slug):
         else:
             name, path = MUGS[k]; img, kind = k, "mug"
         return (f'<li><a href="https://triamdenmarketing.etsy.com/listing/{path}" target="_blank" rel="noopener">'
-                f'<img src="shop/{img}.jpg" alt="Black {kind} with the {name} design" width="640" height="480" loading="lazy">'
+                f'<img src="shop/{img}.jpg" alt="{'White' if kind.startswith('40oz') else 'Black'} {kind} with the {name} design" width="640" height="480" loading="lazy">'
                 f'<span>{name}</span><em>{kind[0].upper()+kind[1:]} on Etsy</em></a></li>')
     cards = "".join(card(k) for k in keys)
     return (f'<section class="shop-strip"><div class="wrap"><div class="section-head"><h2>{head}</h2>'
