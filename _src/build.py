@@ -113,6 +113,7 @@ PAGE_MUGS = {
  "cab-kitchen-clutter-guide.html": ("For drivers who keep a clean cab", ["my-cab-is-cleaner-than-your-office", "t:my-cab-is-cleaner-than-your-office", "x:my-cab-is-cleaner-than-your-office", "leaf-blower-clean-certified"]),
  "12v-lunch-box-hotlogic-vs-travelisimo.html": ("For the cab kitchen", ["i-dont-cook-i-reheat", "my-kitchen-travels-at-65-mph", "no-kettle-no-coffee-no-problem"]),
  "12v-fridge-buying-checklist.html": ("For the cab kitchen", ["my-kitchen-travels-at-65-mph", "i-dont-cook-i-reheat", "x:my-patience-has-an-hos-limit", "shakes-bars-and-diesel"]),
+ "winter-cab-prep-checklist.html": ("For the winter run", ["my-cab-is-cleaner-than-your-office", "t:my-office-has-18-wheels-truck", "x:my-patience-has-an-hos-limit"]),
  "gifts-for-truck-drivers.html": ("Gifts from the Cab Gear shop", ["epu-dear-epu-let-me-sleep", "x:epu-dear-epu-let-me-sleep", "t:i-dont-cook-i-reheat", "my-office-has-18-wheels-truck"]),
  "about.html": ("Designed by a working driver", ["real-gear-real-miles-real-life", "t:my-office-has-18-wheels-truck", "living-life-one-load-at-a-time", "my-cab-my-rules"]),
 }
@@ -155,7 +156,7 @@ def buy(name):
 
 TONES = {
     "epu-vs-idling.html": "tone-warm", "how-i-eat-on-the-road.html": "tone-warm",
-    "protein-snacks-for-truck-drivers.html": "tone-warm", "gifts-for-truck-drivers.html": "tone-warm",
+    "protein-snacks-for-truck-drivers.html": "tone-warm", "gifts-for-truck-drivers.html": "tone-warm", "winter-cab-prep-checklist.html": "tone-warm",
     "cab-kitchen-clutter-guide.html": "tone-cool", "12v-lunch-box-hotlogic-vs-travelisimo.html": "tone-cool",
     "12v-fridge-buying-checklist.html": "tone-cool", "cab-organization-zones.html": "tone-cool",
 }
@@ -280,6 +281,7 @@ PAGES["index.html"] = ("TriAmden Cab Gear", "Cab organization and in-cab kitchen
 <section class="guides"><div class="wrap">
   <div class="section-head"><h2>Guides</h2><a href="cab-kitchen-clutter-guide.html">Start with the gear guide</a></div>
   <ul class="cards">
+    <li class="card"><a href="winter-cab-prep-checklist.html"><span class="tag">Checklist</span><h3>Winter Cab Prep Checklist</h3><p>Fuel, air system, tires and chains, the stuck-for-a-day bag and staying safe in the sleeper.</p></a></li>
     <li class="card"><a href="gifts-for-truck-drivers.html"><span class="tag">Gift guide</span><h3>Gifts for Truck Drivers They'll Actually Use</h3><p>Hot meals, cold food, better sleep, an organized cab and a cup that fits the cupholder, plus what to skip.</p></a></li>
     <li class="card"><a href="cab-kitchen-clutter-guide.html"><span class="tag">Buying guide</span><h3>Cab Kitchen &amp; Clutter Control: 5 Gear Picks</h3><p>Why a visor organizer beats a seat-back one, plus two 12V lunch boxes, a dual-zone fridge and a steering wheel tray.</p></a></li>
     <li class="card"><a href="12v-lunch-box-hotlogic-vs-travelisimo.html"><span class="tag">Comparison</span><h3>HOTLOGIC Mini vs. TRAVELISIMO 100W</h3><p>Which 12V heated lunch box fits how you drive, and what to check before you buy either.</p></a></li>
@@ -684,6 +686,80 @@ PAGES["gifts-for-truck-drivers.html"] = ("Gifts for Truck Drivers", "Practical g
   <li>Another phone mount. We have one. We probably have three.</li>
 </ul>
 <p>From one driver: the best gift is the one that makes the next shift a little easier.</p>
+</div></article>
+""", "index.html")
+
+PAGES["winter-cab-prep-checklist.html"] = ("Winter Cab Prep Checklist", "A winter checklist for truck drivers: fuel, air system, tires and chains, cab supplies, sleeper safety and what to keep on board if you get stuck.", f"""
+<article class="article"><div class="wrap">
+<p class="eyebrow">Checklist</p>
+<h1>Winter Cab Prep Checklist for Truck Drivers</h1>
+<p class="byline">By Clifford Cruickshank, CDL-A driver · Updated November 2026</p>
+<p class="disclosure"><strong>Disclosure:</strong> The mugs and tumblers shown on this page are my own designs, sold in the TriAmden Marketing Etsy shop, and I earn from those sales. Nothing else here pays me.</p>
+<p>The time to get ready for winter is before the first cold snap, not at a fuel island in a snowstorm. Work through this list on your next home time or before your first run north. Your truck's manual and your shop or carrier's rules come first where they differ from anything here.</p>
+
+<h2>Fuel</h2>
+<ul>
+  <li><strong>Treat before the cold hits.</strong> Diesel can start to gel in freezing weather. Anti-gel additive works as prevention, so add it per the label before the temperature drops. A product that thaws gelled fuel is a different thing, and it's worth carrying a bottle of that too.</li>
+  <li><strong>Know what's in the tank.</strong> Fuel bought down south may not be treated for where you're headed.</li>
+  <li><strong>Check the fuel-water separator.</strong> Water freezes. Drain it per your manual and carry a spare filter.</li>
+  <li><strong>Keep the tanks fuller.</strong> You don't want to find out how far the next open stop is with a low tank in a storm.</li>
+</ul>
+
+<h2>Air system and brakes</h2>
+<ul>
+  <li>Have the air dryer checked and drain the tanks if your truck has manual drains. Moisture in the lines can freeze.</li>
+  <li>Watch how long it takes to build air on a cold morning. If that changes, get it looked at.</li>
+  <li>Parking in slush? Frozen brakes are a real thing. Ask your carrier or shop how they want you to handle it before you need the answer.</li>
+</ul>
+
+<h2>Batteries, fluids and wipers</h2>
+<ul>
+  <li>Get the batteries load tested. Cold shows you which one was already weak.</li>
+  <li>Check coolant protection and the block heater cord, if the truck has one.</li>
+  <li>Fill up with washer fluid rated for freezing temperatures, and carry a spare jug.</li>
+  <li>Replace worn wiper blades. Winter road spray will show you exactly how worn they are.</li>
+</ul>
+
+<h2>Tires and chains</h2>
+<ul>
+  <li>Check tread and pressure. Pressure drops as the temperature drops.</li>
+  <li>Look up chain rules for each state on your route. They vary, and they change with conditions. Check the state DOT before you roll.</li>
+  <li>Inspect your chains and try hanging them once in good weather. A blizzard is a bad time to learn.</li>
+  <li>Pack heavy gloves, bungee straps for the chains and a mat or tarp to kneel on.</li>
+</ul>
+
+<h2>The stuck-for-a-day bag</h2>
+<p>If a highway closes, you may sit for hours or longer. Keep this in the cab from November on:</p>
+<ul>
+  <li>Water and food that needs no heating, enough for a couple of days</li>
+  <li>Any medication you take, with a few days extra</li>
+  <li>Warm layers, a hat, spare dry socks and boots with real traction</li>
+  <li>A sleeping bag or heavy blanket rated for the cold</li>
+  <li>Flashlight and spare batteries</li>
+  <li>Phone power bank and charging cables</li>
+  <li>Ice scraper, small shovel and a bag of traction sand or cat litter</li>
+  <li>Reflective triangles, hi-vis vest and a first aid kit</li>
+</ul>
+<p>If you're building out your cab food setup, my <a href="how-i-eat-on-the-road.html">How I Eat on the Road</a> guide covers the everyday version.</p>
+
+<h2>Staying warm and safe in the sleeper</h2>
+<ul>
+  <li><strong>Keep the exhaust clear.</strong> If you're idling or running a bunk heater in heavy snow, check that snow hasn't blocked the exhaust. Carbon monoxide can kill you in your sleep.</li>
+  <li><strong>Don't run a flame heater in the cab.</strong> Portable propane and similar heaters aren't made for a closed sleeper.</li>
+  <li><strong>Know your heat source before the cold comes.</strong> Test the bunk heater, APU or EPU while you're still somewhere you can get it fixed. If your truck has an EPU, <a href="epu-vs-idling.html">here's what living with one is like</a>.</li>
+</ul>
+
+<h2>Plan the trip like it's winter</h2>
+<ul>
+  <li>Check the weather along the whole route, not just where you are and where you deliver.</li>
+  <li>Check state 511 systems for closures and chain requirements.</li>
+  <li>Decide where you'll stop before the storm decides for you. Truck parking fills up early when weather closes in.</li>
+  <li>Know the adverse driving conditions rule in the hours-of-service regulations before you need it, and talk to dispatch early.</li>
+  <li>No load is worth a wreck. If it isn't safe to keep going, find a safe place and stop.</li>
+</ul>
+
+<h2>The quick version</h2>
+<p>Treat the fuel, check the air system and batteries, know the chain rules, pack the stuck-for-a-day bag and keep the exhaust clear. Do that before the first cold snap and most winter surprises turn into just another long day.</p>
 </div></article>
 """, "index.html")
 
