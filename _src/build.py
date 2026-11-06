@@ -57,7 +57,7 @@ AMAZON_TERMS = ("We don't sell the products we link to. Orders placed on Amazon 
 
 FB_URL = "https://www.facebook.com/TriAmdenMarketing/"
 IG_URL = "https://www.instagram.com/triamden/"
-YT_URL = "https://www.youtube.com/@TriAmdenMarketing"
+YT_URL = "https://www.youtube.com/@TriAmden-Marketing"
 YT_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 8.2a3 3 0 0 0-2.1-2.1C18 5.6 12 5.6 12 5.6s-6 0-7.9.5A3 3 0 0 0 2 8.2 31 31 0 0 0 1.6 12 31 31 0 0 0 2 15.8a3 3 0 0 0 2.1 2.1c1.9.5 7.9.5 7.9.5s6 0 7.9-.5a3 3 0 0 0 2.1-2.1c.4-1.2.4-3.8.4-3.8s0-2.6-.4-3.8zM10 15V9l5.2 3z"/></svg>'
 FB_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v6h4v-6H16l.6-4h-3.1V9c0-.6.4-1 1-1z"/></svg>'
 IG_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2"/></svg>'
