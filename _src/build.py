@@ -687,6 +687,81 @@ PAGES["gifts-for-truck-drivers.html"] = ("Gifts for Truck Drivers", "Practical g
 </div></article>
 """, "index.html")
 
+TONES["healthy-meals-truck-cab.html"] = "tone-warm"
+PAGE_MUGS["healthy-meals-truck-cab.html"] = ("For the cab kitchen", ["i-dont-cook-i-reheat", "t:i-dont-cook-i-reheat", "x:i-dont-cook-i-reheat", "my-kitchen-travels-at-65-mph"])
+
+PAGES["healthy-meals-truck-cab.html"] = ("Healthy Meals You Can Heat in a Truck Cab", "Meals a truck driver can heat in the cab with a microwave or 12V lunch box: what reheats well, how to pack a week of food, store-bought backups and food safety basics.", f"""
+<article class="article"><div class="wrap">
+<p class="eyebrow">Cab kitchen</p>
+<h1>Healthy Meals You Can Heat in a Truck Cab</h1>
+<p class="byline">By Clifford Cruickshank, CDL-A driver · Updated November 2026</p>
+<p class="disclosure"><strong>Disclosure:</strong> The mugs and tumblers shown on this page are my own designs, sold in the TriAmden Marketing Etsy shop, and I earn from those sales. This article has no other paid links.</p>
+<p>If you can heat food in the cab, you can eat better than the hot case at the fuel island. You don't need to cook on the road. You need meals that reheat well, a way to keep them cold until you eat them, and a backup plan for when the home food runs out. This isn't medical or diet advice. If you have a health condition, follow what your doctor tells you.</p>
+
+<h2>Your two ways to heat food</h2>
+<ul>
+  <li><strong>A microwave on the inverter.</strong> Fast, and it handles almost anything. It also pulls a lot of power, so check your inverter's rating before you plug one in.</li>
+  <li><strong>A 12V heated lunch box.</strong> Slower, but it plugs into the truck's 12V outlet and warms your meal while you drive. See our <a href="12v-lunch-box-hotlogic-vs-travelisimo.html">HOTLOGIC vs. TRAVELISIMO comparison</a> if you're choosing one.</li>
+</ul>
+<p>Either way, you need cold storage. If your truck has no fridge, start with our <a href="12v-fridge-buying-checklist.html">12V fridge buying checklist</a>.</p>
+
+<h2>Build the plate</h2>
+<p>A simple rule of thumb: a protein, a vegetable and a starch in every container. Protein and vegetables keep you full longer than a plate that's mostly starch, which makes it easier to walk past the snack aisle at the next stop.</p>
+
+<h2>Meals that reheat well</h2>
+<ul>
+  <li><strong>Stews and curries.</strong> Stewed chicken, pork or beef often taste better on day two.</li>
+  <li><strong>Rice dishes.</strong> Fried rice, pelau, rice and beans. Add a splash of water before heating so the rice doesn't dry out.</li>
+  <li><strong>Chili and soups.</strong> Easy to portion and they heat evenly. Use a container with a vented lid.</li>
+  <li><strong>Baked chicken with vegetables.</strong> Heat with the lid loose so it steams instead of drying out.</li>
+  <li><strong>Casseroles.</strong> Lasagna, macaroni pie and baked pasta hold together and reheat well.</li>
+  <li><strong>Burrito bowls.</strong> Rice, beans, chicken or ground turkey and salsa. Keep cold toppings in a separate small container.</li>
+</ul>
+
+<h2>Meals that don't travel well</h2>
+<ul>
+  <li>Anything fried or crispy. It comes out of the microwave soggy.</li>
+  <li>Salads with dressing already on. Pack the dressing separately.</li>
+  <li>Big, thick portions in one block. They heat on the outside and stay cold in the middle. Flatter containers heat more evenly.</li>
+</ul>
+
+<h2>Packing a week of food</h2>
+<p>My wife, Nicole, cooks enough for about a week before I head out, packed in bulk containers, and I heat a plate at mealtime. However your food gets made, a few habits help:</p>
+<ul>
+  <li><strong>Freeze the back half of the week.</strong> Cooked leftovers only keep a few days in the fridge (see below), so freeze what you'll eat later and move it to the fridge to thaw a day ahead.</li>
+  <li><strong>Use containers that are safe to microwave</strong> and that stack, so the fridge stays organized.</li>
+  <li><strong>Label each container</strong> with what it is and the day it was cooked.</li>
+  <li><strong>Eat the oldest food first.</strong></li>
+</ul>
+
+<h2>Food safety basics</h2>
+<p>Getting sick on the road costs you more than a meal. The USDA's guidance on <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety" rel="noopener">leftovers and food safety</a> is the reference to follow:</p>
+<ul>
+  <li>Keep the fridge at 40°F or below. A cheap fridge thermometer tells you if it's keeping up.</li>
+  <li>Eat refrigerated cooked leftovers within 3 to 4 days, or freeze them.</li>
+  <li>Reheat leftovers to 165°F. Stir partway through and let the food stand a minute, because microwaves leave cold spots.</li>
+  <li>Don't leave cooked food out of the fridge for more than 2 hours, or 1 hour if it's hot in the cab.</li>
+  <li>If you're not sure about something, throw it out.</li>
+</ul>
+
+<h2>When the home food runs out</h2>
+<p>Most stores with truck parking sell things you can turn into a decent hot meal with a microwave or a lunch box:</p>
+<ul>
+  <li>Rotisserie chicken with a bagged salad or a microwave steam bag of vegetables</li>
+  <li>Microwave rice or grain pouches with canned beans or tuna</li>
+  <li>Frozen vegetables or potatoes to stretch what's left in the fridge</li>
+  <li>Plain oatmeal cups for breakfast instead of a pastry</li>
+</ul>
+<p>Check the label for serving size and sodium. Packaged and prepared food can carry more salt than you'd expect.</p>
+
+<h2>Don't forget water</h2>
+<p>Drinking enough water makes long days easier, and it's easy to forget when you're watching the clock. Keep a full bottle or tumbler where you can reach it.</p>
+
+<h2>The quick version</h2>
+<p>Cook or buy meals that reheat well, put a protein and a vegetable in every container, freeze the back half of the week and heat to 165°F. For the full picture of how I handle food on a week out, read <a href="how-i-eat-on-the-road.html">How I Eat on the Road</a>, and for snacks between meals, see <a href="protein-snacks-for-truck-drivers.html">Protein Snacks for Drivers</a>.</p>
+</div></article>
+""", "index.html")
+
 PAGES["about.html"] = ("About Cab Gear", "Who writes TriAmden Cab Gear and how products are chosen.", f"""
 <section class="ab-hero">
   <div class="ab-hero-media"><img src="about-truck.jpg" alt="A black Kenworth T680 sleeper truck on a highway at sunset. Callout: Gear, organization, food on the road, real solutions." width="974" height="326"></div>
